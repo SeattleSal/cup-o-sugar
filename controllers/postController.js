@@ -2,10 +2,60 @@
 const db = require("../models");
 
 module.exports = {
-// getAllPosts
-// getPostsByUser - take in id from params - return an array of posts
-// getPostById - return one post
-// createPost
-// updatePost
-// deletePost
+
+    // getAllPosts
+    findAll: function (req, res) {
+        db.Post.find(req.query)
+            .sort({ date: -1 })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
+    // getPostsByUser - take in id from params
+
+    findByUser: function (req, res) {
+        db.Post.find({ owner: req.params.id })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+
+
+    },
+
+
+    // getPostById
+    findById: function (req, res) {
+        db.Post.findById(req.params.id)
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+
+
+    },
+
+    // createPost
+    create: function (req, res) {
+        db.Post.create(req.body)
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
+
+    // updatePost
+    update: function (req, res) {
+        db.Post.findOneAndUpdate({ _id: req.params.id }, req.body)
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
+
+    // deletePost
+    remove: function (req, res) {
+        db.Post.findById({ _id: req.params.id })
+            .then(dbModel => dbModel.remove())
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    }
 };
+
+
+
+
+
+
+
