@@ -4,51 +4,55 @@ const db = require("../models");
 module.exports = {
 
     // getAllPosts
-    findAll: function(req, res) {
+    findAll: function (req, res) {
         db.Post.find(req.query)
-      .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-      },
-      // getPostsByUser - take in id from params
-       
+            .sort({ date: -1 })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
+    // getPostsByUser - take in id from params
 
-      // return an array of posts
+    findByUser: function (req, res) {
+        db.Post.find({ owner: req.params.id })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
 
 
+    },
 
-      // getPostById
-      findById: function(req, res) {
+
+    // getPostById
+    findById: function (req, res) {
         db.Post.findById(req.params.id)
-          .then(dbModel => res.json(dbModel))
-          .catch(err => res.status(422).json(err));
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
 
-          // return one post
-      },
 
-      // createPost
-      create: function(req, res) {
+    },
+
+    // createPost
+    create: function (req, res) {
         db.Post.create(req.body)
-          .then(dbModel => res.json(dbModel))
-          .catch(err => res.status(422).json(err));
-      },
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
 
-      // updatePost
-      update: function(req, res) {
+    // updatePost
+    update: function (req, res) {
         db.Post.findOneAndUpdate({ _id: req.params.id }, req.body)
-          .then(dbModel => res.json(dbModel))
-          .catch(err => res.status(422).json(err));
-      },
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
 
-      // deletePost
-      remove: function(req, res) {
+    // deletePost
+    remove: function (req, res) {
         db.Post.findById({ _id: req.params.id })
-          .then(dbModel => dbModel.remove())
-          .then(dbModel => res.json(dbModel))
-          .catch(err => res.status(422).json(err));
-      }
-    };
-    
+            .then(dbModel => dbModel.remove())
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    }
+};
+
 
 
 
