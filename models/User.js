@@ -6,7 +6,7 @@ const userSchema = new Schema({
   email: { type: String, required: true },
   neighborhood: String,
   password: { type: String, required: true },
-  date: { type: Date, default: Date.now},
+  date: { type: Date, default: Date.now}
   //posts: {type:Array}
   //requests: {type:Array} after create psosts and requests
 });
