@@ -2,16 +2,23 @@ const router = require("express").Router();
 const postController = require("../../controllers/postController");
 
 // Matches with "/api/user"
+
 router
   .route("/")
-  .get(postController.findAll);
-  // .post(userController.create);
+  .get(postController.findAll)
+  .post(postController.create);
 
-// Matches with "/api/user/:id"
-// router
-//   .route("/:id")
-//   .get(userController.findById)
-//   .put(userController.update)
-//   .delete(userController.remove);
+// Matches with "/api/posts"
+
+
+// Matches with "/api/posts/:id"
+router
+  .route("/:id")
+  .get(postController.findById)
+  .put(postController.update)
+  .delete(postController.remove);
+
+
+
 
 module.exports = router;
