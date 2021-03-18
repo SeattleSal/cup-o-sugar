@@ -42,3 +42,19 @@ body {
   max-width: 4rem;
   max-height: 4rem;
 }
+
+.loginRegForms {
+  display: inline-flex;
+  justify-content: center;
+  margin: .5rem;
+}
+
+.regDrop,
+.loginDrop {
+  min-width: 8rem;
+}
+
+.loginDropMenu,
+.regDropMenu {
+  min-width: 25rem;
+}
