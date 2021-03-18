@@ -28,12 +28,13 @@ module.exports = {
   update: function (req, res) {
     console.log("update: " + req.params.id)
     console.log("update with: " + req.body)
-    User.findOneAndUpdate({ _id: req.params.id }, req.body)
+    User.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true})
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   // deleteUser
   remove: function (req, res) {
+    // const ID = "6052b2a7bf1d023b1033ff48"
     console.log("delete: " + req.params.id)
     User.findById({ _id: req.params.id })
       .then((dbModel) => dbModel.remove())
