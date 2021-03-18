@@ -34,7 +34,6 @@ module.exports = {
   },
   // deleteUser
   remove: function (req, res) {
-    // const ID = "6052b2a7bf1d023b1033ff48"
     console.log("delete: " + req.params.id)
     User.findById({ _id: req.params.id })
       .then((dbModel) => dbModel.remove())
