@@ -1,41 +1,45 @@
 import React from 'react';
 
+import { Jumbotron } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import { Accordion } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
+
+function HeaderNav() {
+
+  return (
+    <Jumbotron className="jumbotron jumbotron-fluid text-center col-12">
+      <Accordion>
+        <Container className="navContainer container">
 
 
-function HeaderNav () {
 
-    return (
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle as={Button} className="btn btn-primary fas fa-bars" variant="link" eventKey="0">
+              </Accordion.Toggle>
+            </Card.Header>
 
-        <div className="jumbotron jumbotron-fluid text-center col-12">
-              <div className="navContainer">
+          </Card>
 
-                <p>
-                
-                  <a className="btn btn-primary fas fa-bars" data-bs-toggle="collapse"  role="button"
-                    aria-expanded="false" aria-controls="collapse"></a>
-                </p>
 
-                <h1 >Cup of Sugar</h1>
+          <h1 >Cup of Sugar</h1>
 
-                <p>
-                
-                  <a className="nav-link btn btn-primary fas fa-plus" href="#"></a>
-                </p>
+          <Button className="nav-link btn btn-primary fas fa-plus" href="#"></Button>
 
-              </div>
-
-              <div className="collapse" id="navigateOpts">
-                <div className="card card-body">
-                  <a className="dropdown-item" >Profile</a>
-                  <a className="dropdown-item" >How it Works</a>
-                  <a className="dropdown-item" >Guidelines</a>
-                  <div className="dropdown-divider"></div>
-                  <a className="dropdown-item" >Log Out</a>
-                </div>
-              </div>
-
-            </div>
-    )
+        </Container>
+        <Accordion.Collapse eventKey="0">
+          <Card>
+            <Card.Body>Profile</Card.Body>
+            <Card.Body>How It Works</Card.Body>
+            <Card.Body>Guidelines</Card.Body>
+            <Card.Body>Log Out</Card.Body>
+          </Card>
+        </Accordion.Collapse>
+      </Accordion>
+    </Jumbotron>
+  )
 }
 
 export default HeaderNav;
