@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const User = require("./User");
+const Response = require("./Response");
 
 const postSchema = new Schema({
   name: { type: String, required: true },
@@ -8,8 +9,8 @@ const postSchema = new Schema({
   status: { type: String, required: true, default: "open" }, // open, pending, close
   description: { type: String, required: true },
   picture: { type: String }, // use url for now, change if upload pics
-  owner: { type: Schema.Types.ObjectId, ref: 'User', required: true } // connect to the User
-  // responses: [] // array of response types
+  owner: { type: Schema.Types.ObjectId, ref: 'User', required: true }, // connect to the User
+  responses: [{ type: Schema.Types.ObjectId, ref: 'Response'}]
 });
 
 const Post = mongoose.model("Post", postSchema);
