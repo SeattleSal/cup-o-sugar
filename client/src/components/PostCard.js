@@ -5,7 +5,7 @@ import logo from '../logo.svg';
 
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container'
+import Container from 'react-bootstrap/Container';
 
 
 

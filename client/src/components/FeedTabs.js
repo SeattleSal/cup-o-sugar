@@ -16,9 +16,9 @@ function FeedTabs() {
             </Tab>
             <Tab eventKey="profile" href="#" className="nav-link" title="My Posts">
                 
-            </Tab>
+             </Tab>
             
-        </Tabs>
+         </Tabs>
     )
 }
 
