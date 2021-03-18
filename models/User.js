@@ -11,7 +11,6 @@ const userSchema = new Schema({
   date: { type: Date, default: Date.now},
   posts: [{ type: Schema.Types.ObjectId, ref: 'Post'}],
   responses: [{ type: Schema.Types.ObjectId, ref: 'Response'}],
-  
 });
 
 const User = mongoose.model("User", userSchema);

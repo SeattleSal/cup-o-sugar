@@ -16,6 +16,8 @@ router
     .put(postController.update)
     .delete(postController.remove);
 
+    // router.route("/user/:id")
+    // .get(postController.findByUser)
 
 
 
