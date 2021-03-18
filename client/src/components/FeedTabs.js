@@ -10,24 +10,15 @@ function FeedTabs() {
 
     return (
 
-        // <ul className="nav nav-tabs nav-fill col-12">
-        //     <li className="nav-item">
-        //         <a className="nav-link" href="#">Gives</a>
-        //     </li>
-        //     <li className="nav-item">
-        //         <a className="nav-link" href="#">My Posts</a>
-        //     </li>
-        // </ul>
-
-        <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-            <Tab eventKey="home" title="Give">
+        <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="nav nav-tabs nav-fill col-12">
+            <Tab eventKey="home" href="#" className="nav-link" title="Give">
                 
             </Tab>
-            <Tab eventKey="profile" title="My Posts">
+            <Tab eventKey="profile" href="#" className="nav-link" title="My Posts">
                 
-            </Tab>
+             </Tab>
             
-        </Tabs>
+         </Tabs>
     )
 }
 

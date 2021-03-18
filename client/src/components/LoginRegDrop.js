@@ -1,7 +1,13 @@
 import React from 'react';
 
-import {Dropdown} from 'react-bootstrap';
+import { Dropdown } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 // import {DropdownButton} from 'react-bootstrap/DropdownButton';
+import { Accordion } from 'react-bootstrap';
+import {Card} from 'react-bootstrap';
+
 
 
 
@@ -49,18 +55,152 @@ function LoginRegDrop() {
 
         //         </div>
 
-        <Dropdown>
-            <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                Dropdown Button
-            </Dropdown.Toggle>
+        // <Container className="loginRegForms">
 
-            <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-            </Dropdown.Menu>
-        </Dropdown>
 
+        //     <Dropdown>
+
+
+        //         <Dropdown.Toggle variant="primary" className="loginDrop btn btn-primary" data-bs-toggle="collapse" role="button" href="#loginDropDownDown"
+        //             aria-expanded="false" aria-controls="collapseExample">
+        //             Login
+        //         </Dropdown.Toggle>
+
+        //         <Dropdown.Menu className="collapse" id="loginDropDownDown">
+
+                    // <Form className="regDropMenu" >
+                    //     <Form.Group controlId="formBasicEmail">
+                    //         <Form.Label>Email address</Form.Label>
+                    //         <Form.Control type="email" placeholder="Enter email" />
+                    //     </Form.Group>
+
+                    //     <Form.Group controlId="formBasicPassword">
+                    //         <Form.Label>Password</Form.Label>
+                    //         <Form.Control type="password" placeholder="Password" />
+                    //     </Form.Group>
+
+                    //     <Button variant="primary" type="submit">
+                    //         Submit
+                    //         </Button>
+                    // </Form>
+
+        //         </Dropdown.Menu>
+
+
+        //     </Dropdown>
+        //     <Dropdown>
+
+
+
+        //         <Dropdown.Toggle variant="primary" className="regDrop" id="dropdown-basic">
+        //             Register
+        //         </Dropdown.Toggle>
+
+        //         <Dropdown.Menu className="collapse" id="loginDropDownDown">
+                    // <Form className="regDropMenu" >
+                    //     <Form.Group>
+                    //         <Form.Control type="text" placeholder="What's your name?" />
+
+                    //     </Form.Group>
+                    //     <Form.Group controlId="formBasicEmail">
+
+                    //         <Form.Control type="email" placeholder="Enter email" />
+
+                    //     </Form.Group>
+
+                    //     <Form.Group controlId="formBasicPassword">
+
+                    //         <Form.Control type="password" placeholder="Password" />
+                    //     </Form.Group>
+                    //     <Form.Group>
+                    //         <Form.Label>Select Your Neighorhood</Form.Label>
+                    //     <Form.Control as="select" >
+                    //         <option>Zipcode 1</option>
+                    //         <option>Zipcode 2</option>
+                    //         <option>Zipcode 3</option>
+                    //         <option>Zipcode 4</option>
+                    //         <option>Zipcode 5</option>
+                    //     </Form.Control>
+                    //     </Form.Group>
+
+                    //     <Button variant="primary" type="submit">
+                    //         Submit
+                    // </Button>
+                    // </Form>
+        //         </Dropdown.Menu>
+
+
+
+        //     </Dropdown>
+        // </Container>
+
+        <Accordion>
+            <Card className="loginDrop">
+                <Card.Header>
+                    <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                        Login
+                    </Accordion.Toggle>
+                </Card.Header>
+                <Accordion.Collapse eventKey="0">
+                    
+                    <Form className="regDropMenu" >
+                        <Form.Group controlId="formBasicEmail">
+                            
+                            <Form.Control type="email" placeholder="Enter email" />
+                        </Form.Group>
+
+                        <Form.Group controlId="formBasicPassword">
+                            
+                            <Form.Control type="password" placeholder="Password" />
+                        </Form.Group>
+
+                        <Button variant="primary" type="submit">
+                            Submit
+                            </Button>
+                    </Form>
+                </Accordion.Collapse>
+            </Card>
+            <Card>
+                <Card.Header>
+                    <Accordion.Toggle as={Button} variant="link" eventKey="1">
+                        Register
+                    </Accordion.Toggle>
+                </Card.Header>
+                <Accordion.Collapse eventKey="1">
+                    
+                    <Form className="regDropMenu" >
+                        <Form.Group>
+                            <Form.Control type="text" placeholder="What's your name?" />
+
+                        </Form.Group>
+                        <Form.Group controlId="formBasicEmail">
+
+                            <Form.Control type="email" placeholder="Enter email" />
+
+                        </Form.Group>
+
+                        <Form.Group controlId="formBasicPassword">
+
+                            <Form.Control type="password" placeholder="Password" />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Select Your Neighorhood</Form.Label>
+                        <Form.Control as="select" >
+                            <option>Zipcode 1</option>
+                            <option>Zipcode 2</option>
+                            <option>Zipcode 3</option>
+                            <option>Zipcode 4</option>
+                            <option>Zipcode 5</option>
+                        </Form.Control>
+                        </Form.Group>
+
+                        <Button variant="primary" type="submit">
+                            Submit
+                    </Button>
+                    </Form>
+                </Accordion.Collapse>
+            </Card>
+        </Accordion>
     )
 }
 
