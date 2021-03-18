@@ -1,19 +1,18 @@
-// posts
 const db = require("../models");
 
 module.exports = {
 
-    // getAllPosts
+    // getAllResponses
     findAll: function (req, res) {
-        db.Post.find(req.query)
+        db.Response.find(req.query)
             .sort({ date: -1 })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
-    // getPostsByUser - take in id from params
+    // getResponsesByUser - take in id from params
 
     findByUser: function (req, res) {
-        db.Post.find({ owner: req.params.id })
+        db.Response.find({ owner: req.params.id })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
 
@@ -21,41 +20,38 @@ module.exports = {
     },
 
 
-    // getPostById
+    // getResponseById
     findById: function (req, res) {
-        db.Post.findById(req.params.id)
+        db.Response.findById(req.params.id)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
 
 
     },
 
-    // createPost
+    // createResponse
     create: function (req, res) {
         console.log(req.body)
-        db.Post.create(req.body)
+        db.Response.create(req.body)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
 
-    // updatePost
+    // updateResponse
     update: function (req, res) {
-        db.Post.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true})
+        db.Response.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
 
-    // deletePost
+    // deleteResponse
     remove: function (req, res) {
-        db.Post.findById({ _id: req.params.id })
+        db.Response.findById({ _id: req.params.id })
             .then(dbModel => dbModel.remove())
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     }
 };
-
-
-
 
 
 
