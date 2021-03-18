@@ -21,12 +21,16 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "bootstrap": "^4.6.0",
     "dotenv": "^8.2.0",
     "express": "^4.16.3",
     "fastest-validator": "^1.10.0",
     "if-env": "^1.0.4",
     "mongoose": "^5.12.0",
+    "node-sass": "^4.14.1",
     "passport": "^0.4.1",
-    "passport-jwt": "^4.0.0"
+    "passport-jwt": "^4.0.0",
+    "react-bootstrap": "^1.5.2",
+    "react-dom": "^17.0.1"
   }
 }

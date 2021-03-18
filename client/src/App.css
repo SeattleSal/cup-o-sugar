@@ -22,3 +22,26 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* .navContainer {
+  display: flex; 
+  align-items: baseline; 
+  justify-content: space-between;
+}
+
+.lead {
+  text-align: center;
+}
+
+.loginCardCluster {
+  text-align: -webkit-center;
+}
+
+.loginBtn {
+  min-width: 9rem;
+}
+
+.landingCard {
+  width: 18rem; 
+  margin-bottom: 10px;
+} */

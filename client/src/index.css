@@ -3,3 +3,42 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+/* .jumbotron {
+  justify-content: space-around;
+} */
+
+
+.navContainer {
+  display: flex; 
+  align-items: baseline; 
+  justify-content: space-around;
+}
+
+.lead {
+  text-align: center;
+}
+
+.loginCardCluster {
+  text-align: -webkit-center;
+}
+
+.loginBtn {
+  min-width: 9rem;
+}
+
+.landingCard {
+  max-width: 25rem; 
+  margin-bottom: 10px;
+}
+
+.postCardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.postOwnerPhoto {
+  max-width: 4rem;
+  max-height: 4rem;
+}
