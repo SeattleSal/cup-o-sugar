@@ -38,6 +38,8 @@ function LoginRegDrop() {
   // ---- REGISTER USER - hooks and functions ----//
   const registerEmailRef = useRef();
   const registerPasswordRef = useRef();
+  const registerNameRef = useRef();
+  const registerNeighborhoodRef = useRef();
 
   //  Get the helper login function from the `useLogin` hook.
   //   we already have this above so if we separate login and register, we will need to uncomment const login=useLogin()
@@ -48,10 +50,12 @@ function LoginRegDrop() {
 
     const email = registerEmailRef.current.value;
     const password = registerPasswordRef.current.value;
+    const name = registerNameRef.current.value;
+    const neighborhood = registerNeighborhoodRef.current.value;
 
     try {
       // Register the user.
-      await api.register({ email, password });
+      await api.register({ name, email, password, neighborhood });
 
       // User has been successfully registered, now log them in with the same information.
       await login({ email, password });
@@ -220,8 +224,8 @@ function LoginRegDrop() {
         </Card.Header>
         <Accordion.Collapse eventKey="1">
           <Form className="regDropMenu" onSubmit={registerHandleSubmit}>
-            <Form.Group>
-              <Form.Control type="text" placeholder="What's your name?" />
+            <Form.Group controlId="registerName">
+              <Form.Control type="text" ref={registerNameRef} placeholder="What's your name?" />
             </Form.Group>
             <Form.Group controlId="registerEmail">
               <Form.Control type="email" ref={registerEmailRef} placeholder="Enter email" />
@@ -230,9 +234,9 @@ function LoginRegDrop() {
             <Form.Group controlId="registerPassword">
               <Form.Control type="password" ref={registerPasswordRef} placeholder="Password" />
             </Form.Group>
-            <Form.Group>
+            <Form.Group controlId="registerNeighborhood">
               <Form.Label>Select Your Neighorhood</Form.Label>
-              <Form.Control as="select">
+              <Form.Control as="select" ref={registerNeighborhoodRef}>
                 <option>Zipcode 1</option>
                 <option>Zipcode 2</option>
                 <option>Zipcode 3</option>

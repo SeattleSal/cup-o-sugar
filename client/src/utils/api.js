@@ -30,10 +30,13 @@ class API {
      * @param {object} userData 
      * @param {String} userData.email
      * @param {String} userData.password
+     * @param {String} userData.name
+     * @param {String} userData.neighborhood
      * 
      * @returns {Promise}
      */
     register( userData ) {
+        console.log(userData)
 
         return this.axios.post("/api/authentication/register", userData);
 
