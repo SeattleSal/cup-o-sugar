@@ -4,13 +4,15 @@ const Post = require("./Post");
 const Response = require("./Response");
 
 const userSchema = new Schema({
-  name: { type: String, required: true },
+  name: { type: String },
   email: { type: String, required: true },
   password: { type: String, required: true },
   neighborhood: String,
   date: { type: Date, default: Date.now},
   posts: [{ type: Schema.Types.ObjectId, ref: 'Post'}],
   responses: [{ type: Schema.Types.ObjectId, ref: 'Response'}],
+}, {
+  usePushEach: true,
 });
 
 const User = mongoose.model("User", userSchema);

@@ -16,8 +16,6 @@ module.exports = {
         db.Post.find({ owner: req.params.id })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
-
-
     },
 
 
@@ -26,8 +24,6 @@ module.exports = {
         db.Post.findById(req.params.id)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
-
-
     },
 
     // createPost
