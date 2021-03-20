@@ -12,9 +12,13 @@ import "./App.css";
 import LandingLogin from "./pages/LandingLogin";
 import GiveFeed from "./pages/GiveFeed";
 import AddPost from "./pages/AddPost";
+import HowItWorksPage from "./pages/HowItWorksPage";
+import Guidelines from "./pages/GuidelinesPage";
+
 // Import the useAuthTokenStore hook.
 import { useAuthTokenStore, useIsAuthenticated } from "./utils/auth";
 import { BrowserRouter } from "react-router-dom";
+import GuidelinesPage from "./pages/GuidelinesPage";
 
 function App() {
   // ---- USER AUTHENTICATION ---- //
@@ -37,9 +41,11 @@ function App() {
               <h1>You are not logged in!</h1>
             )}
             
-            <LandingLogin />
+            {/* <LandingLogin /> */}
             {/* <GiveFeed /> */}
             {/* <AddPost /> */}
+            {/* <HowItWorksPage /> */}
+            <GuidelinesPage />
     </BrowserRouter>
   );
 }
