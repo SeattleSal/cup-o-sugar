@@ -18,24 +18,21 @@ function HeaderNav() {
   return (
     <Jumbotron className="jumbotron jumbotron-fluid text-center col-12">
       <Accordion>
-        <Container className="navContainer container">
+        <div className="navContainer container">
 
-
-
-          <Card>
+          {/* <Card> */}
             <Card.Header>
               <Accordion.Toggle as={Button} className="btn btn-primary fas fa-bars" variant="link" eventKey="0">
               </Accordion.Toggle>
             </Card.Header>
 
-          </Card>
-
+          {/* </Card> */}
 
           <h1 >Cup of Sugar</h1>
 
           <Button className="nav-link btn btn-primary fas fa-plus" href="#"></Button>
 
-        </Container>
+        </div>
         <Accordion.Collapse eventKey="0">
           <Card>
             <Card.Body>Profile</Card.Body>
