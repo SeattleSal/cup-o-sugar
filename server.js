@@ -20,13 +20,10 @@ passport.use( require("./config/jwtPassportStrategy") );
 // Add routes, both API and view
 app.use(routes);
 
-// Serve up static assets (usually on heroku)
+// // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use(express.static(path.join(__dirname, "client/build")));
 }
-
-// // authentication route
-// app.use(require("./routes/api/authentication") );
 
 // Send every request to the React app
 // Define any API routes before this runs

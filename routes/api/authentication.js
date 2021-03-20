@@ -94,8 +94,6 @@ router.post("/register", validateBodyWith( registerValidator ), async (req, res)
 
   try {
 
-    console.log(req.body)
-
     const { name, email, password, neighborhood } = req.body;
 
     const user = await User.findOne({ email });
