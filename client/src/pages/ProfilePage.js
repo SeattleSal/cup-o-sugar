@@ -1,12 +1,12 @@
 import HeaderNav from "../components/HeaderNav";
-import Guidelines from "../components/Guidelines";
+import {Profile} from "../components/Profile";
 import {Container} from "react-bootstrap";
 
 function GuidelinesPage() {
     return (
-    <Container className="guidelinesPage">
+    <Container className="profilePage">
         <HeaderNav />
-        <Guidelines />
+        <Profile />
     </Container>
     );
 };
