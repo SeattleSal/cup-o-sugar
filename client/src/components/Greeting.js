@@ -6,6 +6,8 @@ function Greeting () {
 
         <p className="lead col-12">A hyper local neighborhood experience</p>
 
+        // Authorization if statement from app.js
+
     )
 }
 
