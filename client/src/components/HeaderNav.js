@@ -20,16 +20,10 @@ function HeaderNav() {
       <Accordion>
         <Container className="navContainer container">
 
-
-
-          <Card>
-            <Card.Header>
+            <Card>
               <Accordion.Toggle as={Button} className="btn btn-primary fas fa-bars" variant="link" eventKey="0">
               </Accordion.Toggle>
-            </Card.Header>
-
-          </Card>
-
+            </Card>
 
           <h1 >Cup of Sugar</h1>
 
@@ -38,10 +32,12 @@ function HeaderNav() {
         </Container>
         <Accordion.Collapse eventKey="0">
           <Card>
+            <Card.Body>Home</Card.Body>
             <Card.Body>Profile</Card.Body>
             <Card.Body>How It Works</Card.Body>
             <Card.Body>Guidelines</Card.Body>
-            <Card.Body><button onClick={logout}>Log Out</button></Card.Body>
+            <Button variant="link" onClick={logout}>Log Out</Button>
+            {/* <Card.Body><button onClick={logout}>Log Out</button></Card.Body> */}
           </Card>
         </Accordion.Collapse>
       </Accordion>
