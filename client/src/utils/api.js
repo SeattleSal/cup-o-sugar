@@ -36,7 +36,6 @@ class API {
      * @returns {Promise}
      */
     register( userData ) {
-        console.log(userData)
 
         return this.axios.post("/api/authentication/register", userData);
 
