@@ -4,11 +4,14 @@
 import React from "react";
 import "./App.css";
 
-import FeedTabs from "./components/FeedTabs";
-import Greeting from "./components/Greeting";
-import HeaderNav from "./components/HeaderNav";
-import PostCard from "./components/PostCard";
-import LoginRegDrop from "./components/LoginRegDrop";
+// import FeedTabs from "./components/FeedTabs";
+// import Greeting from "./components/Greeting";
+// import HeaderNav from "./components/HeaderNav";
+// import PostCard from "./components/PostCard";
+// import LoginRegDrop from "./components/LoginRegDrop";
+import LandingLogin from "./pages/LandingLogin";
+import GiveFeed from "./pages/GiveFeed";
+import AddPost from "./pages/AddPost";
 // Import the useAuthTokenStore hook.
 import { useAuthTokenStore, useIsAuthenticated } from "./utils/auth";
 import { BrowserRouter } from "react-router-dom";
@@ -25,30 +28,18 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="loginPage">
-        <div className="container-fluid">
-          <div className="row">
+      {/* <div className="loginPage"> */}
+        {/* <div className="container-fluid"> */}
+          {/* <div className="row"> */}
             {isAuthenticated ? (
               <h1>You are logged in!</h1>
             ) : (
               <h1>You are not logged in!</h1>
             )}
-            <HeaderNav />
-
-            <Greeting />
-
-            <FeedTabs />
-
-            <div className="container">
-              <div className="loginCardCluster">
-                <LoginRegDrop />
-
-                <PostCard />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            
+            <LandingLogin />
+            {/* <GiveFeed /> */}
+            {/* <AddPost /> */}
     </BrowserRouter>
   );
 }
