@@ -9,9 +9,9 @@ function CreatePost() {
 
     return (
 
-        <Form>
+        <Form style={{marginLeft:"2rem", marginRight:"2rem"}} >
 
-            <h3 classname="postOwnerName">Placeholder for Owner Name</h3>
+            <h3 classname="postOwnerName" style={{ fontFamily:"'Lobster', cursive"}}>Owner Name</h3>
             
             <Form.Control type="text" placeholder="Item Name" />
 

@@ -5,7 +5,7 @@ import HeaderNav from '../components/HeaderNav';
 import LoginRegDrop from '../components/LoginRegDrop';
 import PostCard from '../components/PostCard';
 
-import { Container } from 'react-bootstrap';
+// import { Container } from 'react-bootstrap';
 
 
 
@@ -18,8 +18,8 @@ function LandingLogin() {
             <HeaderNav />
             <Greeting />
             <LoginRegDrop />
-            <PostCard />
-            <Footer />
+            {/* <PostCard /> */}
+            {/* <Footer /> */}
         </div>
 
     );

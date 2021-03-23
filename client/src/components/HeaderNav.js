@@ -16,18 +16,18 @@ function HeaderNav() {
   // END OF LOGOUT FUNCTION //
 
   return (
-    <Jumbotron className="jumbotron jumbotron-fluid text-center col-12">
+    <Jumbotron className="jumbotron jumbotron-fluid text-center col-12" style={{ backgroundColor:"rgba(95, 158, 160, 0.65)"}} >
       <Accordion>
         <div className="navContainer container">
 
-            <Card>
-              <Accordion.Toggle as={Button} className="btn btn-primary fas fa-bars" variant="link" eventKey="0">
-              </Accordion.Toggle>
-            </Card>
+          {/* <Card> */}
+            <Accordion.Toggle as={Button} className="fas fa-bars" variant="link" eventKey="0" style={{ color: "white", fontSize: "1.75rem"}}>
+            </Accordion.Toggle>
+          {/* </Card> */}
 
-          <h1 >Cup of Sugar</h1>
+          <h1 style={{ fontFamily: "'Lobster', cursive", color: "white"}}>Cup of Sugar</h1>
 
-          <Button className="nav-link btn btn-primary fas fa-plus" href="#"></Button>
+          <a className="nav-link fas fa-plus" href="#" style={{ color: "white", fontSize: "1.75rem"}} />
 
         </div>
         <Accordion.Collapse eventKey="0">

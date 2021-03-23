@@ -1,14 +1,15 @@
+import React from "react";
 import HeaderNav from "../components/HeaderNav";
-import {Profile} from "../components/Profile";
-import {Container} from "react-bootstrap";
+import Profile from "../components/Profile";
+// import {Container} from "react-bootstrap";
 
-function GuidelinesPage() {
+function ProfilePage() {
     return (
-    <Container className="profilePage">
+    <div className="profilePage">
         <HeaderNav />
         <Profile />
-    </Container>
+    </div>
     );
 };
 
-export default GuidelinesPage;
+export default ProfilePage;
