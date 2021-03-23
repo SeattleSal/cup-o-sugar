@@ -190,7 +190,7 @@ function LoginRegDrop() {
     <Accordion>
       <Card className="loginDrop">
         <Card.Header className="loginAccBtn" style={{ backgroundColor: "rgba(95, 158, 160, 0.45)"}} >
-          <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{ color: "white"}}>
+          <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{ color: "white", fontFamily:"'Montserrat', sans-serif"}}>
             Login
           </Accordion.Toggle>
         </Card.Header>
@@ -220,7 +220,7 @@ function LoginRegDrop() {
       </Card>
       <Card>
         <Card.Header className="regAccBtn"  style={{ backgroundColor: "rgba(95, 158, 160, 0.45)"}} >
-          <Accordion.Toggle as={Button} variant="link" eventKey="1" style={{ color: "white"}}>
+          <Accordion.Toggle as={Button} variant="link" eventKey="1" style={{ color: "white", fontFamily:"'Montserrat', sans-serif"}}>
             Register
           </Accordion.Toggle>
         </Card.Header>
@@ -255,7 +255,7 @@ function LoginRegDrop() {
       </Card>
       <Card className="loginDrop">
         <Card.Header className="loginAccBtn" style={{ backgroundColor: "rgba(95, 158, 160, 0.45)"}} >
-          <Accordion.Toggle as={Button} variant="link" eventKey="2" style={{ color: "white"}}>
+          <Accordion.Toggle as={Button} variant="link" eventKey="2" style={{ color: "white", fontFamily:"'Montserrat', sans-serif"}}>
             How it Works
           </Accordion.Toggle>
         </Card.Header>
@@ -265,7 +265,7 @@ function LoginRegDrop() {
       </Card>
       <Card className="loginDrop">
         <Card.Header className="loginAccBtn" style={{ backgroundColor: "rgba(95, 158, 160, 0.45)"}} >
-          <Accordion.Toggle as={Button} variant="link" eventKey="3" style={{ color: "white"}}>
+          <Accordion.Toggle as={Button} variant="link" eventKey="3" style={{ color: "white", fontFamily:"'Montserrat', sans-serif"}}>
             Guidelines
           </Accordion.Toggle>
         </Card.Header>

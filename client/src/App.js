@@ -25,15 +25,14 @@ function App() {
   // for components below can show if !isAuthenticated or if isAuthenticated
   // const isAuthenticated = useIsAuthenticated();
   // ---- END OF USER AUTHENTICATION VARIABLES ---- //
+  // {isAuthenticated ? (
+  //   <h1>You are logged in!</h1>
+  // ) : (
+  //   <h1>You are not logged in!</h1>
+  // )} 
 
   return (
     <Router>
-            {/* {isAuthenticated ? (
-              <h1>You are logged in!</h1>
-            ) : (
-              <h1>You are not logged in!</h1>
-            )} */}
-<<<<<<< HEAD
             <Switch>
               <Route exact strict path="/" component={LandingLogin}></Route>
               <Route exact strict path="/feed" component={GiveFeed}></Route>
@@ -42,17 +41,6 @@ function App() {
               <Route exact strict path="/profile" component={ProfilePage}></Route>
               <Route exact strict path="/howitworks" component={HowItWorksPage}></Route>
               <Route exact path="*" component={LandingLogin}></Route>
-            {/* <LandingLogin /> */}
-            {/* <GiveFeed /> */}
-=======
-            
-            {/* <LandingLogin /> */}
-            <GiveFeed />
->>>>>>> de0c6df4354d28da035900130feb6f1e12948f57
-            {/* <AddPost /> */}
-            {/* <HowItWorksPage /> */}
-            {/* <GuidelinesPage /> */}
-            {/* <ProfilePage /> */}
             </Switch>
     </Router>
   );

@@ -26,9 +26,9 @@ function Greeting() {
             <GreetingPhoto />
             
             {isAuthenticated ? (
-                <p style={{ color: "rgba(95, 158, 160, 0.95)", display:"flex", justifyContent:"center"}} >You are logged in!</p>
+                <p style={{ color: "rgba(95, 158, 160, 0.95)", display:"flex", justifyContent:"center", fontFamily:"'Montserrat', sans-serif"}} >You are logged in!</p>
                 ) : (
-                <p style={{ color: "rgba(95, 158, 160, 0.95)", display:"flex", justifyContent:"center"}} >Welcome, Guest! Please login.</p>
+                <p style={{ color: "rgba(95, 158, 160, 0.95)", display:"flex", justifyContent:"center", fontFamily:"'Montserrat', sans-serif"}} >Welcome, Guest! Please login.</p>
                 )}
 
         </BrowserRouter>
