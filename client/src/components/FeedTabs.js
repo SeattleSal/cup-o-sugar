@@ -12,19 +12,21 @@ function FeedTabs() {
 
     return (
 
-        <Container>
+        // <Container>
 
-            <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="nav nav-tabs nav-fill col-12" style={{ display:"flex", justifycontent:"center" }}>
+            <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="nav nav-tabs nav-fill col-12">
 
-                <Tab eventKey="home" href="#" className="nav-link" title="Give" >
+                <Tab eventKey="home" href="#" className="nav-link" title="Give" style={{ display:"flex", flexWrap: "wrap", justifyContent: "center" }} >
 
+                    <PostCard />
                     <PostCard />
                     <PostCard />
                     <PostCard />
 
                 </Tab>
-                <Tab eventKey="profile" href="#" className="nav-link" title="My Posts">
+                <Tab eventKey="profile" href="#" className="nav-link" title="My Posts" style={{ display:"flex", flexWrap: "wrap", justifyContent: "center" }} >
 
+                    <PostCard />
                     <PostCard />
                     <PostCard />
                     <PostCard />
@@ -32,7 +34,7 @@ function FeedTabs() {
                 </Tab>
 
             </Tabs>
-        </Container>
+        // </Container>
     );
 };
 

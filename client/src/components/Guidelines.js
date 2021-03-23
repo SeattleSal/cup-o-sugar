@@ -6,8 +6,8 @@ import {ListGroup} from "react-bootstrap";
 function Guidelines() {
     return (
         <Container>
-            <Card>
-                <Card.Header>
+            <Card style={{ fontFamily:"'Montserrat', sans-serif"}} >
+                <Card.Header style={{ fontFamily:"'Lobster', cursive", fontSize: "1.5rem" }} >
                     Guidelines
                 </Card.Header>
                 <ListGroup>
