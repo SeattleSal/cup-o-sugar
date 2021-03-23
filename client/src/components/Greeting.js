@@ -4,6 +4,7 @@ import React from 'react';
 import { useAuthTokenStore, useIsAuthenticated } from "../utils/auth";
 import { BrowserRouter } from "react-router-dom";
 import GreetingPhoto from './GreetingPhoto';
+import GreetingText from './GreetingText';
 
 function Greeting() {
 
@@ -21,8 +22,7 @@ function Greeting() {
 
         <BrowserRouter>
                 
-            <p className="lead col-12" style={{ fontFamily: "'Lobster', cursive", color: "rgba(95, 158, 160, 0.95)" }} >A hyper local neighborhood experience</p>
-
+            <GreetingText />
             <GreetingPhoto />
             
             {isAuthenticated ? (

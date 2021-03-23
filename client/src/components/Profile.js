@@ -11,7 +11,7 @@ function Profile() {
             <Card style={{ fontFamily:"'Montserrat', sans-serif"}}>
                 <Card.Header style={{ fontFamily:"'Lobster', cursive", fontSize: "1.5rem" }} >
                     Welcome NAME!
-                    <p>Please use this page to make sure your information is correct. If you need to change your email, you can input and save a new one.</p>
+                    <p style={{ fontFamily:"'Montserrat', sans-serif", fontSize:"1rem"}} >Please use this page to make sure your information is correct. If you need to change your email, you can input and save a new one.</p>
                 </Card.Header>
                 <ListGroup>
                     <ListGroup.Item>Users Name</ListGroup.Item>
