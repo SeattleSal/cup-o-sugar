@@ -9,6 +9,8 @@ import { Button } from "react-bootstrap";
 // import {DropdownButton} from 'react-bootstrap/DropdownButton';
 import { Accordion } from "react-bootstrap";
 import { Card } from "react-bootstrap";
+import HowItWorks from "./HowItWorks";
+import Guidelines from "./Guidelines";
 
 function LoginRegDrop() {
   // ----- LOGIN - hooks and functions -----//
@@ -187,8 +189,8 @@ function LoginRegDrop() {
 
     <Accordion>
       <Card className="loginDrop">
-        <Card.Header>
-          <Accordion.Toggle as={Button} variant="link" eventKey="0">
+        <Card.Header className="loginAccBtn" style={{ backgroundColor: "rgba(95, 158, 160, 0.45)"}} >
+          <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{ color: "white"}}>
             Login
           </Accordion.Toggle>
         </Card.Header>
@@ -210,15 +212,15 @@ function LoginRegDrop() {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" >
               Submit
             </Button>
           </Form>
         </Accordion.Collapse>
       </Card>
       <Card>
-        <Card.Header>
-          <Accordion.Toggle as={Button} variant="link" eventKey="1">
+        <Card.Header className="regAccBtn"  style={{ backgroundColor: "rgba(95, 158, 160, 0.45)"}} >
+          <Accordion.Toggle as={Button} variant="link" eventKey="1" style={{ color: "white"}}>
             Register
           </Accordion.Toggle>
         </Card.Header>
@@ -249,6 +251,26 @@ function LoginRegDrop() {
               Submit
             </Button>
           </Form>
+        </Accordion.Collapse>
+      </Card>
+      <Card className="loginDrop">
+        <Card.Header className="loginAccBtn" style={{ backgroundColor: "rgba(95, 158, 160, 0.45)"}} >
+          <Accordion.Toggle as={Button} variant="link" eventKey="2" style={{ color: "white"}}>
+            How it Works
+          </Accordion.Toggle>
+        </Card.Header>
+        <Accordion.Collapse eventKey="2" style={{ margin: "1.5rem"}}>
+          <HowItWorks />
+        </Accordion.Collapse>
+      </Card>
+      <Card className="loginDrop">
+        <Card.Header className="loginAccBtn" style={{ backgroundColor: "rgba(95, 158, 160, 0.45)"}} >
+          <Accordion.Toggle as={Button} variant="link" eventKey="3" style={{ color: "white"}}>
+            Guidelines
+          </Accordion.Toggle>
+        </Card.Header>
+        <Accordion.Collapse eventKey="3" style={{ margin: "1.5rem"}}>          
+          <Guidelines />
         </Accordion.Collapse>
       </Card>
     </Accordion>

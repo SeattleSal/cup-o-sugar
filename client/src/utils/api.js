@@ -230,7 +230,11 @@ class API {
     //create post
     createPost(postData) {
         console.log("POsting data: " + postData)
-        return this.axios.post("/api/post", postData);
+        return this.axios.post("/api/post", postData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+        });
     }
 
 

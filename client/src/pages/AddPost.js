@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+// import { Container } from 'react-bootstrap';
 import CreatePost from '../components/CreatePost';
 import Footer from '../components/Footer';
 import HeaderNav from '../components/HeaderNav';
@@ -10,13 +10,13 @@ function AddPost () {
 
     return (
 
-        <Container className="addPost">
+        <div classname="addPost">
 
             <HeaderNav />
             <CreatePost />
-            <Footer />
+            {/* <Footer /> */}
             
-        </Container>
+        </div>
     )
 }
 
