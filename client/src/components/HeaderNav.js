@@ -3,7 +3,7 @@ import { useLogout } from '../utils/auth';
 
 
 import { Jumbotron } from 'react-bootstrap';
-import { Container } from 'react-bootstrap';
+// import { Container } from 'react-bootstrap';
 import { Accordion } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
@@ -27,17 +27,16 @@ function HeaderNav() {
 
           <h1 style={{ fontFamily: "'Lobster', cursive", color: "white"}}>Cup of Sugar</h1>
 
-          <a className="nav-link fas fa-plus" href="#" style={{ color: "white", fontSize: "1.75rem"}} />
+          <a className="nav-link fas fa-plus" href="/post" style={{ color: "white", fontSize: "1.75rem"}} />
 
         </div>
         <Accordion.Collapse eventKey="0">
-          <Card>
-            <Card.Body>Home</Card.Body>
-            <Card.Body>Profile</Card.Body>
-            <Card.Body>How It Works</Card.Body>
-            <Card.Body>Guidelines</Card.Body>
-            <Button variant="link" onClick={logout}>Log Out</Button>
-            {/* <Card.Body><button onClick={logout}>Log Out</button></Card.Body> */}
+          <Card style={{fontFamily:"'Montserrat', sans-serif"}}>
+            <a href= "/" style={{color:"rgba(95, 158, 160, 0.65)"}}>Home</a>
+            <a href= "/profile" style={{color:"rgba(95, 158, 160, 0.65)"}}>Profile</a>
+            <a href= "/howitworks" style={{color:"rgba(95, 158, 160, 0.65)"}}>How It Works</a>
+            <a href= "/guidelines" style={{color:"rgba(95, 158, 160, 0.65)"}}>Guidelines</a>
+            <Button variant="link" onClick={logout} style={{color:"rgba(95, 158, 160, 0.65)"}}>Log Out</Button>
           </Card>
         </Accordion.Collapse>
       </Accordion>

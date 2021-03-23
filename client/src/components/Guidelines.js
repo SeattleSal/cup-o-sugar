@@ -7,7 +7,7 @@ function Guidelines() {
     return (
         <Container>
             <Card style={{ fontFamily:"'Montserrat', sans-serif"}} >
-                <Card.Header style={{ fontFamily:"'Lobster', cursive", fontSize: "1.5rem" }} >
+                <Card.Header style={{ fontFamily:"'Lobster', cursive", fontSize: "1.5rem", textAlign:"center"}} >
                     Guidelines
                 </Card.Header>
                 <ListGroup>

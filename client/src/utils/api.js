@@ -36,6 +36,7 @@ class API {
      * @returns {Promise}
      */
     register(userData) {
+        console.log("Registered User:")
         console.log(userData)
 
         return this.axios.post("/api/authentication/register", userData);
@@ -51,6 +52,8 @@ class API {
      * @returns {Promise}
      */
     login(userData) {
+        console.log("Login User:")
+        console.log(userData)
 
         return this.axios.post("/api/authentication/login", userData);
 
@@ -229,7 +232,8 @@ class API {
 
     //create post
     createPost(postData) {
-        console.log("POsting data: " + postData)
+        console.log("Posting data: ")
+        console.log(postData)
         return this.axios.post("/api/post", postData, {
             headers: {
               'Content-Type': 'multipart/form-data'

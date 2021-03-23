@@ -6,7 +6,7 @@ function HowItWorks() {
     return (
         <Container>
             <Card style={{ fontFamily:"'Montserrat', sans-serif"}} >
-                <Card.Header style={{ fontFamily:"'Lobster', cursive", fontSize: "1.5rem" }} >How It Works</Card.Header>
+                <Card.Header style={{ fontFamily:"'Lobster', cursive", fontSize: "1.5rem", textAlign: "center" }} >How It Works</Card.Header>
                 <p>
                     Cup of Sugar is a hyper-local buy-nothing neighborhood experience.
                 </p>

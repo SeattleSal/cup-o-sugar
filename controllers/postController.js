@@ -32,22 +32,14 @@ module.exports = {
 
     // createPost
     create: async(req, res) => {
-        // console.log(req.body)
         try {
-            // console.log(req.body)
-            // const fileStr = req.body.path;
-            // const uploadedResponse = await cloudinary.uploader.upload(fileStr,
-            //     {
-            //         upload_preset: 'cuposugar'
-            //     });
-            //     console.log(uploadedResponse);
-            //     res.json({msg: "image uploaded"});
             console.log(req.file.path)
+            // upload image to cloudinary
             const result = await cloudinary.uploader.upload(req.file.path,
                 {
                     upload_preset: 'cuposugar'
                 });
-            // res.json(result);
+            // create post body with form data and cloudinary secure_url and public_id
             const value = {
                 ...req.body,
                 image: result.secure_url,

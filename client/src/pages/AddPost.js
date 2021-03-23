@@ -10,7 +10,7 @@ function AddPost () {
 
     return (
 
-        <div classname="addPost">
+        <div className="addPost">
 
             <HeaderNav />
             <CreatePost />

@@ -11,11 +11,9 @@ function CreatePost() {
     type: "give",
     status: "open",
   });
-  const [fileInputState, setFileInputState] = useState("");
   const [selectedFile, setSelectedFile] = useState("");
-  const [fileName, setFileName] = useState("");
+  const [selectedFileName, setSelectedFileName] = useState("");
   const [previewSource, setPreviewSource] = useState("");
-  const uploadRef = useRef();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -24,11 +22,15 @@ function CreatePost() {
 
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
+    // console.log("File: " + file)
+    // set selectedFile and selectedFileName for upload
     setSelectedFile(file);
-    console.log(file);
+    setSelectedFileName(file.name);
+    // set previewFile for image preview in PostPage
     previewFile(file);
   };
 
+  // show preview of file to be uploaded in page
   const previewFile = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -37,52 +39,44 @@ function CreatePost() {
     };
   };
 
+  // submit file and post data from form
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Post Submitted...");
 
-    if (!previewSource) return;
-    // const reader = new FileReader();
-    // reader.readAsDataURL(selectedFile);
-    // uploadImage(previewSource);
-    console.log(uploadRef.current.files[0]);
-    console.log(previewSource)
+    // check for inputs - add error message?
+    if (!selectedFile) return;
+    if (!state.postName) return;
+    if (!state.postDescription) return;
 
+    // debugging files sent
+    console.log("Selected File: ");
+    console.log(selectedFile);
+    console.log("Selected File Name: " + selectedFileName)
+
+    // create FormData
     let fd = new FormData();
-    fd.append("owner", "Joe");
+    fd.append("owner", "60596015b41879509463a6ef");
     fd.append("name", state.postName);
     fd.append("description", state.postDescription);
-    fd.append("file", previewSource);
+    fd.append("image", selectedFile, selectedFileName);
     fd.append("type", "give");
     fd.append("status", "open");
 
     API.createPost(fd)
       .then((dbPost) => {
-        console.log("Post posted");
+        console.log("Post posted!");
         console.log(dbPost);
+        window.location.href = "/feed";
       })
       .catch((err) => console.log("Post creation error: " + err));
-
-    // const postData = {
-    //     owner: "Joe",
-    //     name: state.postName,
-    //     description: state.postDescription,
-    //     // what should I be sending to backend for image?
-    //     file: [selectedFile],
-    //     type: "give",
-    //     status: "open"
-    // }
-    // console.log(postData);
-
-    // const reader = new FileReader();
-    // reader.readAsDataURL(selectedFile);
   };
 
   return (
     <div>
       <Form
         onSubmit={handleSubmit}
-        style={{ marginLeft: "2rem", marginRight: "2rem" }}
+        style={{marginLeft:"2rem", marginRight:"2rem", fontFamily:"'Montserrat', sans-serif"}}
       >
         <h3
           className="postOwnerName"
@@ -112,11 +106,7 @@ function CreatePost() {
           <Form.Label>Upload a Photo</Form.Label>
           <Form.File
             id="exampleFormControlFile1"
-            type="file"
-            label="Example file input"
             accept=".jpg, .png, .jpeg"
-            // value={fileInputState}
-            ref={uploadRef}
             onChange={handleFileInputChange}
           />
         </Form.Group>
@@ -125,11 +115,14 @@ function CreatePost() {
         </Button>
       </Form>
       {previewSource && (
-        <img src={previewSource} alt="chosen" style={{ height: "300px" }} />
+        <div>
+          <h2>Image Preview:</h2>
+          <img src={previewSource} alt="chosen" style={{ height: "300px" }} />
+        </div>
       )}
     </div>
 
-    //Redirect to FeedPage after submit
+    // Redirect to FeedPage after submit
   );
 }
 
