@@ -8,13 +8,13 @@ import LandingLogin from "./pages/LandingLogin";
 import GiveFeed from "./pages/GiveFeed";
 import AddPost from "./pages/AddPost";
 import HowItWorksPage from "./pages/HowItWorksPage";
-import Guidelines from "./pages/GuidelinesPage";
+// import Guidelines from "./pages/GuidelinesPage";
 import ProfilePage from "./pages/ProfilePage";
 import GuidelinesPage from "./pages/GuidelinesPage";
 
 // Import the useAuthTokenStore hook.
 // import { useAuthTokenStore, useIsAuthenticated } from "./utils/auth";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch  } from "react-router-dom";
 
 function App() {
   // ---- USER AUTHENTICATION ---- //
@@ -27,20 +27,34 @@ function App() {
   // ---- END OF USER AUTHENTICATION VARIABLES ---- //
 
   return (
-    <BrowserRouter>
+    <Router>
             {/* {isAuthenticated ? (
               <h1>You are logged in!</h1>
             ) : (
               <h1>You are not logged in!</h1>
             )} */}
+<<<<<<< HEAD
+            <Switch>
+              <Route exact strict path="/" component={LandingLogin}></Route>
+              <Route exact strict path="/feed" component={GiveFeed}></Route>
+              <Route exact strict path="/post" component={AddPost}></Route>
+              <Route exact strict path="/guidelines" component={GuidelinesPage}></Route>
+              <Route exact strict path="/profile" component={ProfilePage}></Route>
+              <Route exact strict path="/howitworks" component={HowItWorksPage}></Route>
+              <Route exact path="*" component={LandingLogin}></Route>
+            {/* <LandingLogin /> */}
+            {/* <GiveFeed /> */}
+=======
             
             {/* <LandingLogin /> */}
             <GiveFeed />
+>>>>>>> de0c6df4354d28da035900130feb6f1e12948f57
             {/* <AddPost /> */}
             {/* <HowItWorksPage /> */}
             {/* <GuidelinesPage /> */}
             {/* <ProfilePage /> */}
-    </BrowserRouter>
+            </Switch>
+    </Router>
   );
 }
 
