@@ -19,17 +19,11 @@ function FeedTabs() {
             <Tab eventKey="home" href="#" className="nav-link" title="Give" style={{ flexWrap: "wrap", justifyContent: "center" }} >
                 <Row style={{ justifyContent: "center" }}>
                     <PostCard />
-                    <PostCard />
-                    <PostCard />
-                    <PostCard />
                 </Row>
 
             </Tab>
             <Tab eventKey="profile" href="#" className="nav-link" title="My Posts" style={{ flexWrap: "wrap", justifyContent: "center" }} >
                 <Row style={{ justifyContent: "center" }}>
-                    <PostCard />
-                    <PostCard />
-                    <PostCard />
                     <PostCard />
                 </Row>
             </Tab>

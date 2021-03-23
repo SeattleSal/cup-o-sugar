@@ -9,7 +9,7 @@ function CreatePost() {
 
     return (
 
-        <Form style={{marginLeft:"2rem", marginRight:"2rem"}} >
+        <Form style={{marginLeft:"2rem", marginRight:"2rem", fontFamily:"'Montserrat', sans-serif"}} >
 
             <h3 classname="postOwnerName" style={{ fontFamily:"'Lobster', cursive"}}>Owner Name</h3>
             
