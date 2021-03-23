@@ -34,8 +34,8 @@ function App() {
               <h1>You are not logged in!</h1>
             )} */}
             
-            <LandingLogin />
-            {/* <GiveFeed /> */}
+            {/* <LandingLogin /> */}
+            <GiveFeed />
             {/* <AddPost /> */}
             {/* <HowItWorksPage /> */}
             {/* <GuidelinesPage /> */}
