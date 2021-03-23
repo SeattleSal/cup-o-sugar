@@ -8,7 +8,8 @@ const postSchema = new Schema({
   type: { type: String, required: true, default: "give" }, // Give, Ask
   status: { type: String, required: true, default: "open" }, // open, pending, close
   description: { type: String, required: true },
-  picture: { type: String }, // use url for now, change if upload pics
+  image: { type: String }, // use url for now, change if upload pics
+  cloudinary_id: { type: String},
   owner: { type: Schema.Types.ObjectId, ref: 'User', required: true }, // connect to the User
   responses: [{ type: Schema.Types.ObjectId, ref: 'Response'}]
 });

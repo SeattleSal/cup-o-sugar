@@ -1,5 +1,9 @@
 // posts
 const db = require("../models");
+const cloudinary = require("../utils/cloudinary");
+const upload = require("../utils/multer");
+const path = require('path');
+
 
 module.exports = {
 
@@ -27,11 +31,35 @@ module.exports = {
     },
 
     // createPost
-    create: function (req, res) {
-        console.log(req.body)
-        db.Post.create(req.body)
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
+    create: async(req, res) => {
+        // console.log(req.body)
+        try {
+            // console.log(req.body)
+            // const fileStr = req.body.path;
+            // const uploadedResponse = await cloudinary.uploader.upload(fileStr,
+            //     {
+            //         upload_preset: 'cuposugar'
+            //     });
+            //     console.log(uploadedResponse);
+            //     res.json({msg: "image uploaded"});
+            console.log(req.file.path)
+            const result = await cloudinary.uploader.upload(req.file.path,
+                {
+                    upload_preset: 'cuposugar'
+                });
+            // res.json(result);
+            const value = {
+                ...req.body,
+                image: result.secure_url,
+                cloudinary_id: result.public_id
+            }
+            const model = await db.Post.create(value);
+            console.log(value, model);
+            res.json(model);
+        }
+        catch(err) {
+            console.log(err);
+        }
     },
 
     // updatePost

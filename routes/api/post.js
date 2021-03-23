@@ -1,12 +1,16 @@
 const router = require("express").Router();
 const postController = require("../../controllers/postController");
+const cloudinary = require("../../utils/cloudinary");
+const upload = require("../../utils/multer");
+const db = require("../../models");
+
 
 // Matches with "/api/user"
 
 router
     .route("/")
     .get(postController.findAll)
-    .post(postController.create);
+    .post(upload.single('image'), postController.create);
 
 
 // Matches with "/api/posts/:id"

@@ -227,7 +227,12 @@ class API {
 
     }
 
-    //create post-wait
+    //create post
+    createPost(postData) {
+        console.log("POsting data: " + postData)
+        return this.axios.post("/api/post", postData);
+    }
+
 
     //getResponse
 

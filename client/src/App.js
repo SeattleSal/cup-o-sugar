@@ -1,3 +1,4 @@
+
 /* eslint-disable react/prefer-stateless-function */
 // import React, { Component } from "react";
 // import logo from "./logo.svg";
@@ -43,9 +44,9 @@ function App() {
             
             {/* <LandingLogin /> */}
             {/* <GiveFeed /> */}
-            {/* <AddPost /> */}
+            <AddPost />
             {/* <HowItWorksPage /> */}
-            <GuidelinesPage />
+            {/* <GuidelinesPage /> */}
     </BrowserRouter>
   );
 }
