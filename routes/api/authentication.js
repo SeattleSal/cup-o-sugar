@@ -75,6 +75,7 @@ router.post("/login", validateBodyWith( loginValidator ), async (req, res) => {
       success: true,
       token: "Bearer " + token,
       user: secureUser
+      // send userID, name, zipcode
     })
   
 
