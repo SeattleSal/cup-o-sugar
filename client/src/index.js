@@ -5,7 +5,7 @@ import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 import "../src/main.scss";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { StoreProvider } from "./store";
+import { StoreProvider } from "./store/AuthStore";
 
 ReactDOM.render(
     <React.StrictMode>
