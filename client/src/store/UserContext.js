@@ -1,5 +1,5 @@
 // global store for user info
-import React,{ createContext, useContext } from "react";
+import React,{ createContext } from "react";
 
 const UserContext = createContext({
     _id: "",

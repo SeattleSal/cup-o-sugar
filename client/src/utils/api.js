@@ -111,9 +111,10 @@ class API {
         });
     }
 
+    // add another call for getLoggedInUser
     getUserbyID(id) {
         console.log("Getting user data by id: " + id);
-        return this.axios.get("/api/user", id);
+        return this.axios.get("/api/user");
     }
 
 

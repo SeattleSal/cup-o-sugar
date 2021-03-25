@@ -7,9 +7,6 @@ import PostCard from '../components/PostCard';
 
 // import { Container } from 'react-bootstrap';
 
-
-
-
 function LandingLogin() {
 
     return (
