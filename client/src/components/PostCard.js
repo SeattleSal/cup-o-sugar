@@ -7,13 +7,13 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import API from '../utils/api';
-
+import {Image, Transformation, CloudinaryContext} from 'cloudinary-react';
 
 
 function PostCard() {
-
+const cloudName="dl7nnmiar"
     //state for all post and set all posts
-    // const [allGivePosts, setAllGivePosts] = useState([]);
+    const [postData, setPostData] = useState([]);
 
     // create a function to call get all post
     // const getAllGives = () => {
@@ -21,98 +21,28 @@ function PostCard() {
     //         console.log(data);
     //     });
     // };
+    
+    
 
-    // useEffect(() => {
-    //     getAllGives()
-    // }, [])
+    useEffect(() => {
+        API.getAllPost()
+              .then(results => {
+                console.log(results.data)
+                setPostData (results.data)
+              })
+              .catch(err => console.log(err));
+          
+    }, [])
 
-    // const givePosts = [
-    //     {
-    //         name: "",
-    //         type: "Give",
-    //         status: "",
-    //         description: "",
-    //         picture: "",
-    //         owner: "",
-    //         responses: "",
-    //     },
-    // ];
-
-    const postData = [
-        {
-            name: "Tricycle",
-            type: "give",
-            status: "open",
-            description: "One year old, almost new",
-            picture: " https://cdn.pixabay.com/photo/2015/03/26/10/34/tricycle-691587_960_720.jpg",
-            owner: "Talor Swift",
-            responses: [
-                {
-                    owner: " 604d24a2eb7588d074b6ad67 ",   //Taylor Swift ID
-                    chosen: true,
-                }
-            ]
-
-
-        },
-
-        {
-            name: "Sofa",
-            type: "give",
-            status: "open",
-            description: "Four years old, it has couple of stains on the side",
-            picture: " https://cdn.pixabay.com/photo/2017/08/06/15/44/house-2593570_960_720.jpg",
-            owner: "Chaka Khan",
-            responses: [
-                {
-                    owner: " 604d24a2eb7588d074b6ad68",   // Chaka Kahn Id
-                    chosen: true,
-                }
-            ]
-        },
-
-        {
-            name: "Plant",
-            type: "give",
-            status: "open",
-            description: "Cactus",
-            picture: " https://cdn.pixabay.com/photo/2019/04/27/21/56/cactus-4161380_960_720.jpg",
-            owner: "Mariah Cary",
-            responses: [
-                {
-                    owner: " 604d24a2eb7588d074b6ad69",    // Mariah Cary Id
-                    chosen: true,
-                }
-            ]
-
-        },
-
-        {
-            name: "Scarf",
-            type: "give",
-            status: "open",
-            description: "Homemade from alpaca yarn",
-            picture: " https://cdn.pixabay.com/photo/2017/08/06/14/42/blanket-2593141_960_720.jpg",
-            owner: "Shade",
-            responses: [
-                {
-                    owner: "604d24a2eb7588d074b6ad65 ",    //  Shade Id
-                    chosen: true,
-                }
-
-            ]
-        },
-    ];
-
-
-
-
+    
+    
     return (
 
         postData.map((postData) => (
 
             <Card className="card landingCard" style={{ fontFamily: "'Montserrat', sans-serif", margin: "1rem" }} >
-                <Card.Img variant="top" src={postData.picture} />
+                <Image cloudName={cloudName} publicId={postData.cloudinary_id} width="300" crop="scale" />
+                {/* <Card.Img variant="top" src={postData.picture} /> */}
                 <Card.Body>
                     <Card.Title>{postData.name}</Card.Title>
                     <Card.Text>{postData.description}</Card.Text>
