@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 // import Greeting from './Greeting';
 import { Container, Tab, Row, Tabs } from 'react-bootstrap';
 import PostCard from '../components/PostCard';
+import MyPostCard from './MyPostCard';
 
 
 // // import TabContainer from 'react-bootstrap/TabContainer'
@@ -12,11 +13,11 @@ function FeedTabs() {
     const [key, setKey] = useState("home");
     return (
 
-        // <Container>
+        <Container style={{ fontFamily:"'Montserrat', sans-serif"}} > 
 
-        <Tabs activeKey={key} onSelect={(k) => setKey(k)} id="controlled-tab-example" className="nav nav-tabs nav-fill col-12">
+        <Tabs activeKey={key} onSelect={(k) => setKey(k)} id="controlled-tab-example" className="nav nav-tabs nav-fill col-12" >
 
-            <Tab eventKey="home" href="#" className="nav-link" title="Give" style={{ flexWrap: "wrap", justifyContent: "center" }} >
+            <Tab eventKey="home" href="#" className="nav-link" title="Give" style={{ flexWrap: "wrap", justifyContent: "center", fontFamily:"'Montserrat', sans-serif" }} >
                 <Row style={{ justifyContent: "center" }}>
                     <PostCard />
                 </Row>
@@ -24,12 +25,12 @@ function FeedTabs() {
             </Tab>
             <Tab eventKey="profile" href="#" className="nav-link" title="My Posts" style={{ flexWrap: "wrap", justifyContent: "center" }} >
                 <Row style={{ justifyContent: "center" }}>
-                    <PostCard />
+                    <MyPostCard />
                 </Row>
             </Tab>
 
         </Tabs>
-        // </Container>
+        </Container>
     );
 };
 

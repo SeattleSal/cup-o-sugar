@@ -40,7 +40,7 @@ function PostCard() {
 
         postData.map((postData) => (
 
-            <Card className="card landingCard">
+            <Card className="card landingCard" style={{ fontFamily: "'Montserrat', sans-serif", margin: "1rem" }} >
                 <Card.Img variant="top" src={postData.picture} />
                 <Card.Body>
                     <Card.Title>{postData.name}</Card.Title>
@@ -54,8 +54,8 @@ function PostCard() {
                     </Container>
                 </Card.Body>
             </Card>
-            ))
-    )
-}
+        ))
+    );
+};
 
 export default PostCard;
