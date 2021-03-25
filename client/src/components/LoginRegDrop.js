@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useLogin } from "../utils/auth";
-import api from "../utils/api";
+import API from "../utils/api";
 
 import { Dropdown } from "react-bootstrap";
 import { Container } from "react-bootstrap";
@@ -24,8 +24,15 @@ function LoginRegDrop() {
     const email = loginEmailRef.current.value;
     const password = loginPasswordRef.current.value;
     try {
-      await login({ email, password });
+      const loginData = await login({ email, password });
+      // userData contains user _Id
+      console.log(loginData.id);
       // User has been successfully logged in and added to state. Perform any additional actions you need here such as redirecting to a new page.
+      console.log("try getting user data...");
+      // API.getUserById(loginData.id);
+      // console.log(userData);
+
+
     } catch (err) {
       // Handle error responses from the API
       if (err.response && err.response.data) { 
@@ -57,7 +64,7 @@ function LoginRegDrop() {
 
     try {
       // Register the user.
-      await api.register({ name, email, password, neighborhood });
+      await API.register({ name, email, password, neighborhood });
 
       // User has been successfully registered, now log them in with the same information.
       await login({ email, password });

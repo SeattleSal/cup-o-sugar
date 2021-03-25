@@ -241,6 +241,11 @@ class API {
         });
     }
 
+    getUserbyID(id) {
+        console.log("Getting user data by id: " + id);
+        return this.axios.get("/api/user", id);
+    }
+
 
     //getResponse
 

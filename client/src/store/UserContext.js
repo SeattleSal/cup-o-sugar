@@ -1,10 +1,10 @@
 // global store for user info
-import React,{ createContext, useContext, useReducer } from "react";
+import React,{ createContext, useContext } from "react";
 
 const UserContext = createContext({
     _id: "",
     name: "",
-    // email: "",
+    email: "",
     neighborhood: "",
     post: [],
     responses: []
@@ -12,6 +12,7 @@ const UserContext = createContext({
 // , { usePushEach: true, }
 );
 
-const { Provider } = UserContext;
+export default UserContext;
 
-export { UserProvider };
+// const { Provider } = UserContext;
+// export { UserProvider };
