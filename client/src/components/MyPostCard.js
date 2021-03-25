@@ -6,37 +6,12 @@ import logo from '../logo.svg';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import {DropdownButton} from 'react-bootstrap';
+import {Dropdown} from 'react-bootstrap';
 import API from '../utils/api';
 
 
-
-function PostCard() {
-
-    //state for all post and set all posts
-    // const [allGivePosts, setAllGivePosts] = useState([]);
-
-    // create a function to call get all post
-    // const getAllGives = () => {
-    //     return API.getAllPost().then(({data}) => {
-    //         console.log(data);
-    //     });
-    // };
-
-    // useEffect(() => {
-    //     getAllGives()
-    // }, [])
-
-    // const givePosts = [
-    //     {
-    //         name: "",
-    //         type: "Give",
-    //         status: "",
-    //         description: "",
-    //         picture: "",
-    //         owner: "",
-    //         responses: "",
-    //     },
-    // ];
+function MyPostCard() {
 
     const postData = [
         {
@@ -104,9 +79,6 @@ function PostCard() {
         },
     ];
 
-
-
-
     return (
 
         postData.map((postData) => (
@@ -118,15 +90,23 @@ function PostCard() {
                     <Card.Text>{postData.description}</Card.Text>
                     <Container className="postCardFooter">
                         <Card.Img className="postOwnerPhoto" src={logo} />
-                        <Card.Text>
+                        {/* <Card.Text>
                             # of People interested.
-                        </Card.Text>
-                        <Button variant="primary">Get</Button>
+                        </Card.Text> */}
+                        <DropdownButton id="dropdown-basic-button" variant="info" title="Interested People">
+                            <Container>
+                                <Dropdown.Item href="#/action-1">{postData.responses.owner}</Dropdown.Item>
+                                <Button variant="outline-info">Pick</Button>{' '}
+                            </Container>
+
+                        </DropdownButton>
+                        <Button variant="danger">Delete</Button>
                     </Container>
                 </Card.Body>
             </Card>
         ))
+
     );
 };
 
-export default PostCard;
+export default MyPostCard;
