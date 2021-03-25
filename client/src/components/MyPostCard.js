@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+// import { useStoreContext } from '../utils/GlobalState';
 
 import logo from '../logo.svg';
 
@@ -6,13 +7,20 @@ import logo from '../logo.svg';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import {DropdownButton} from 'react-bootstrap';
-import {Dropdown} from 'react-bootstrap';
+import { DropdownButton } from 'react-bootstrap';
+import { Dropdown } from 'react-bootstrap';
 import API from '../utils/api';
 import DeletePostBtn from './DeletePostBtn';
 
 
 function MyPostCard() {
+
+    // const [state, dispatch] = useStoreContext();
+
+    // const getAllPost = () => {
+    //     dispatch({ type: LOADING });
+    //     dispatch({ type: UPDATE_MYPOST });
+    // };
 
     const postData = [
         {
@@ -80,6 +88,13 @@ function MyPostCard() {
         },
     ];
 
+    // const removeMyPost = id => {
+    //     dispatch({
+    //         type: REMOVE_MYPOST,
+    //         _id: id
+    //     });
+    // };
+
     return (
 
         postData.map((postData) => (
@@ -101,7 +116,8 @@ function MyPostCard() {
                             </Container>
 
                         </DropdownButton>
-                        <DeletePostBtn onClick={() => {}} />
+                        {/* <DeletePostBtn onClick={() => removeMyPost(post.id)} /> */}
+                        <DeletePostBtn />
                     </Container>
                 </Card.Body>
             </Card>

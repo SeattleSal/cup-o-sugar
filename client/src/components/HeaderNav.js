@@ -2,7 +2,7 @@ import React from 'react';
 import { useLogout } from '../utils/auth';
 
 
-import { Jumbotron } from 'react-bootstrap';
+import { Container, Jumbotron } from 'react-bootstrap';
 // import { Container } from 'react-bootstrap';
 import { Accordion } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
@@ -16,7 +16,10 @@ function HeaderNav() {
   // END OF LOGOUT FUNCTION //
 
   return (
-    <Jumbotron className="jumbotron jumbotron-fluid text-center col-12" style={{ backgroundColor:"rgba(95, 158, 160, 0.65)"}} >
+
+    <Container>
+
+    <Jumbotron className="jumbotron jumbotron-fluid text-center col-12" style={{ backgroundColor:"rgba(95, 158, 160, 0.65)", borderBottomLeftRadius:"8px", borderBottomRightRadius:"8px" }} >
       <Accordion>
         <div className="navContainer container">
 
@@ -41,6 +44,7 @@ function HeaderNav() {
         </Accordion.Collapse>
       </Accordion>
     </Jumbotron>
+    </Container>
   )
 }
 

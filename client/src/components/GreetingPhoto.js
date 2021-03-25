@@ -14,7 +14,7 @@ function GreetingPhoto () {
 
         <div style={{display:"flex", justifyContent:"center"}}>
 
-            <img src={sugarheart} style={{width: "100%", justifyContent: "center", marginBottom:"1rem", borderRadius:"10px"}} />
+            <img src={sugarheart} style={{width: "100%", justifyContent: "center", marginBottom:"1rem", borderRadius:"8px"}} />
 
         </div>
         </Container>
