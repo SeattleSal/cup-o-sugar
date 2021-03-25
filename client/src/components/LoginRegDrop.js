@@ -195,7 +195,7 @@ function LoginRegDrop() {
           </Accordion.Toggle>
         </Card.Header>
         <Accordion.Collapse eventKey="0">
-          <Form className="regDropMenu" onSubmit={loginHandleSubmit}>
+          <Form className="regDropMenu" onSubmit={loginHandleSubmit} style={{ fontFamily:"'Montserrat', sans-serif"}}>
             <Form.Group controlId="loginEmail">
               <Form.Control
                 type="text"
@@ -225,7 +225,7 @@ function LoginRegDrop() {
           </Accordion.Toggle>
         </Card.Header>
         <Accordion.Collapse eventKey="1">
-          <Form className="regDropMenu" onSubmit={registerHandleSubmit}>
+          <Form className="regDropMenu" onSubmit={registerHandleSubmit} style={{ fontFamily:"'Montserrat', sans-serif"}}>
             <Form.Group controlId="registerName">
               <Form.Control type="text" ref={registerNameRef} placeholder="What's your name?" />
             </Form.Group>
@@ -238,7 +238,7 @@ function LoginRegDrop() {
             </Form.Group>
             <Form.Group controlId="registerNeighborhood">
               <Form.Label>Select Your Neighorhood</Form.Label>
-              <Form.Control as="select" ref={registerNeighborhoodRef}>
+              <Form.Control as="select" ref={registerNeighborhoodRef} style={{ fontFamily:"'Montserrat', sans-serif"}}>
                 <option>Zipcode 1</option>
                 <option>Zipcode 2</option>
                 <option>Zipcode 3</option>
