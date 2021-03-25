@@ -12,11 +12,11 @@ function FeedTabs() {
     const [key, setKey] = useState("home");
     return (
 
-        // <Container>
+        <Container style={{ fontFamily:"'Montserrat', sans-serif"}} > 
 
-        <Tabs activeKey={key} onSelect={(k) => setKey(k)} id="controlled-tab-example" className="nav nav-tabs nav-fill col-12">
+        <Tabs activeKey={key} onSelect={(k) => setKey(k)} id="controlled-tab-example" className="nav nav-tabs nav-fill col-12" >
 
-            <Tab eventKey="home" href="#" className="nav-link" title="Give" style={{ flexWrap: "wrap", justifyContent: "center" }} >
+            <Tab eventKey="home" href="#" className="nav-link" title="Give" style={{ flexWrap: "wrap", justifyContent: "center", fontFamily:"'Montserrat', sans-serif" }} >
                 <Row style={{ justifyContent: "center" }}>
                     <PostCard />
                 </Row>
@@ -29,7 +29,7 @@ function FeedTabs() {
             </Tab>
 
         </Tabs>
-        // </Container>
+        </Container>
     );
 };
 

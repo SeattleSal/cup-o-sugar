@@ -43,7 +43,7 @@ function PostCard() {
             name: "Tricycle",
             type: "give",
             status: "open",
-            decription: "One year old, almost new",
+            description: "One year old, almost new",
             picture: " https://cdn.pixabay.com/photo/2015/03/26/10/34/tricycle-691587_960_720.jpg",
             owner: "Talor Swift",
             responses: [
@@ -60,7 +60,7 @@ function PostCard() {
             name: "Sofa",
             type: "give",
             status: "open",
-            decription: "Four years old, it has couple of stains on the side",
+            description: "Four years old, it has couple of stains on the side",
             picture: " https://cdn.pixabay.com/photo/2017/08/06/15/44/house-2593570_960_720.jpg",
             owner: "Chaka Khan",
             responses: [
@@ -75,7 +75,7 @@ function PostCard() {
             name: "Plant",
             type: "give",
             status: "open",
-            decription: "Cactus",
+            description: "Cactus",
             picture: " https://cdn.pixabay.com/photo/2019/04/27/21/56/cactus-4161380_960_720.jpg",
             owner: "Mariah Cary",
             responses: [
@@ -91,7 +91,7 @@ function PostCard() {
             name: "Scarf",
             type: "give",
             status: "open",
-            decription: "Homemade from alpaca yarn",
+            description: "Homemade from alpaca yarn",
             picture: " https://cdn.pixabay.com/photo/2017/08/06/14/42/blanket-2593141_960_720.jpg",
             owner: "Shade",
             responses: [
@@ -111,7 +111,7 @@ function PostCard() {
 
         postData.map((postData) => (
 
-            <Card className="card landingCard">
+            <Card className="card landingCard" style={{ fontFamily:"'Montserrat', sans-serif", margin:"1rem"}} >
                 <Card.Img variant="top" src={postData.picture} />
                 <Card.Body>
                     <Card.Title>{postData.name}</Card.Title>
