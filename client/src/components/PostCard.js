@@ -7,11 +7,11 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import API from '../utils/api';
-
+import {Image, Transformation, CloudinaryContext} from 'cloudinary-react';
 
 
 function PostCard() {
-
+const cloudName="dl7nnmiar"
     //state for all post and set all posts
     const [postData, setPostData] = useState([]);
 
@@ -41,7 +41,8 @@ function PostCard() {
         postData.map((postData) => (
 
             <Card className="card landingCard" style={{ fontFamily: "'Montserrat', sans-serif", margin: "1rem" }} >
-                <Card.Img variant="top" src={postData.picture} />
+                <Image cloudName={cloudName} publicId={postData.cloudinary_id} width="300" crop="scale" />
+                {/* <Card.Img variant="top" src={postData.picture} /> */}
                 <Card.Body>
                     <Card.Title>{postData.name}</Card.Title>
                     <Card.Text>{postData.description}</Card.Text>
