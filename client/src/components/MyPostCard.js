@@ -9,6 +9,7 @@ import Container from 'react-bootstrap/Container';
 import {DropdownButton} from 'react-bootstrap';
 import {Dropdown} from 'react-bootstrap';
 import API from '../utils/api';
+import DeletePostBtn from './DeletePostBtn';
 
 
 function MyPostCard() {
@@ -100,7 +101,7 @@ function MyPostCard() {
                             </Container>
 
                         </DropdownButton>
-                        <Button variant="danger">Delete</Button>
+                        <DeletePostBtn onClick={() => {}} />
                     </Container>
                 </Card.Body>
             </Card>
