@@ -19,7 +19,7 @@ function LandingLogin() {
             <Greeting />
             <LoginRegDrop />
             {/* <PostCard /> */}
-            {/* <Footer /> */}
+            <Footer />
         </div>
 
     );

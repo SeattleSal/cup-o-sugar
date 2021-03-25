@@ -22,7 +22,7 @@ function Greeting() {
 
         <BrowserRouter>
                 
-            <GreetingText />
+            <GreetingText style={{justifyContent:"center"}} />
             <GreetingPhoto />
             
             {isAuthenticated ? (
