@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 // import Greeting from './Greeting';
 import { Container, Tab, Row, Tabs } from 'react-bootstrap';
 import PostCard from '../components/PostCard';
+import MyPostCard from './MyPostCard';
 
 
 // // import TabContainer from 'react-bootstrap/TabContainer'
@@ -24,7 +25,7 @@ function FeedTabs() {
             </Tab>
             <Tab eventKey="profile" href="#" className="nav-link" title="My Posts" style={{ flexWrap: "wrap", justifyContent: "center" }} >
                 <Row style={{ justifyContent: "center" }}>
-                    <PostCard />
+                    <MyPostCard />
                 </Row>
             </Tab>
 
