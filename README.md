@@ -33,8 +33,8 @@ CupOfSugar was designed to promote friendly hyper local experience within your o
 ​
 ## Links to the app:
 ​
-[Application link to github]()
-[Application link to Heroku]()
+[Application link to github](https://github.com/SeattleSal/cup-o-sugar)
+[Application link to Heroku](https://neighborhood-cup-o-sugar.herokuapp.com/)
 ​
 ​
 
@@ -50,8 +50,8 @@ GitHub:bfourGitHub
 email:bfourbryan@gmail.com
 
 Lauren Plenger:
-GitHub:
-email:
+GitHub:Laurenb08
+email:laurenb08@gmail.com
 
 Stanislava medigovik:
 GitHub: smedigo
