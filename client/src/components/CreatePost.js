@@ -1,14 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import API from "../utils/api";
-import { useAuthenticatedUser } from "../utils/auth"
+// import { useAuthenticatedUser, useIsAuthenticated } from "../utils/auth"
 
 function CreatePost() {
-  // get user info
-  const user = useAuthenticatedUser();
-  if(user) console.log(user)
-  if(!user) console.log("No user")
 
   const [state, setState] = useState({
     postName: "",
@@ -72,6 +68,7 @@ function CreatePost() {
       .then((dbPost) => {
         console.log("Post posted!");
         console.log(dbPost);
+        // change this to Link
         window.location.href = "/feed";
       })
       .catch((err) => console.log("Post creation error: " + err));
@@ -126,7 +123,6 @@ function CreatePost() {
         </div>
       )}
     </div>
-
     // Redirect to FeedPage after submit
   );
 }

@@ -12,11 +12,9 @@ import { Accordion } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import HowItWorks from "./HowItWorks";
 import Guidelines from "./Guidelines";
-// import { UserContext } from "../store/UserContext";
 
 function LoginRegDrop() {
   const isAuthenticated = useIsAuthenticated();
-  // const {user, setUser} = useContext(UserContext)
 
   // ----- LOGIN - hooks and functions -----//
   const loginEmailRef = useRef();
@@ -35,7 +33,7 @@ function LoginRegDrop() {
       // User has been successfully logged in and added to state. Perform any additional actions you need here such as redirecting to a new page.
       console.log("received user data...");
       console.log(loginData);
-      window.location.href = "/feed";
+      // window.location.href = "/feed";
     } catch (err) {
       // Handle error responses from the API
       if (err.response && err.response.data) {
@@ -90,6 +88,7 @@ function LoginRegDrop() {
     <Container >
 
       <Accordion >
+        {!isAuthenticated &&
         <Card className="loginDrop">
           <Card.Header className="loginAccBtn" style={{ backgroundColor: "rgba(95, 158, 160, 0.45)" }} >
             <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{ color: "white", fontFamily: "'Montserrat', sans-serif" }}>
@@ -119,6 +118,9 @@ function LoginRegDrop() {
             </Form>
           </Accordion.Collapse>
         </Card>
+        }
+        {!isAuthenticated &&
+
         <Card>
           <Card.Header className="regAccBtn" style={{ backgroundColor: "rgba(95, 158, 160, 0.45)" }} >
             <Accordion.Toggle as={Button} variant="link" eventKey="1" style={{ color: "white", fontFamily: "'Montserrat', sans-serif" }}>
@@ -154,6 +156,7 @@ function LoginRegDrop() {
             </Form>
           </Accordion.Collapse>
         </Card>
+}
         <Card className="loginDrop">
           <Card.Header className="loginAccBtn" style={{ backgroundColor: "rgba(95, 158, 160, 0.45)" }} >
             <Accordion.Toggle as={Button} variant="link" eventKey="2" style={{ color: "white", fontFamily: "'Montserrat', sans-serif" }}>
