@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const Post = require("./Post");
-const Response = require("./Response");
 
 const userSchema = new Schema({
   name: { type: String },
@@ -10,7 +9,7 @@ const userSchema = new Schema({
   neighborhood: String,
   date: { type: Date, default: Date.now},
   posts: [{ type: Schema.Types.ObjectId, ref: 'Post'}],
-  responses: [{ type: Schema.Types.ObjectId, ref: 'Response'}],
+  responses: [{ type: Schema.Types.ObjectId, ref: 'Post'}],
 }, {
   usePushEach: true,
 });

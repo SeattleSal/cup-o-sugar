@@ -53,18 +53,6 @@ const postSeed = [
   }
 ];
 
-const responseSeed = [
-  {
-    owner: "Chaka Khan",
-    chosen: false,
-    post: "Tricycle"
-  },
-  {
-    owner: "Mariah Carey",
-    chosen: true,
-    post: "Tricycle"
-  }
-];
 
 db.User.remove({})
   .then(() => db.User.collection.insertMany(userSeed))
@@ -99,13 +87,3 @@ db.Neighborhood.remove({})
     process.exit(1);
   });
 
-  db.Response.remove({})
-  .then(() => db.Response.collection.insertMany(responseSeed))
-  .then((data) => {
-    console.log(data.result.n + " records inserted!");
-    process.exit(0);
-  })
-  .catch((err) => {
-    console.error(err);
-    process.exit(1);
-  });
