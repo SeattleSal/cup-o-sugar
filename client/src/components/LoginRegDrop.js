@@ -1,4 +1,4 @@
-import React, { useRef, useContext } from "react";
+import React, { useRef, useContext, useState, useMemo } from "react";
 import { useLogin, useIsAuthenticated } from "../utils/auth";
 import API from "../utils/api";
 // import from "../"
@@ -12,11 +12,11 @@ import { Accordion } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import HowItWorks from "./HowItWorks";
 import Guidelines from "./Guidelines";
-// import { UserContext } from "../store/UserContext";
+import { UserContext } from "../store/UserContext";
 
 function LoginRegDrop() {
   const isAuthenticated = useIsAuthenticated();
-  // const [user, setUser] = useContext(UserContext);
+  const {user, setUser} = useContext(UserContext)
 
   // ----- LOGIN - hooks and functions -----//
   const loginEmailRef = useRef();
@@ -27,17 +27,22 @@ function LoginRegDrop() {
     e.preventDefault();
     const email = loginEmailRef.current.value;
     const password = loginPasswordRef.current.value;
+
+    // const value = useMemo(() => ({
+    //   user, setUser
+    // }), [user])
+
     try {
       const loginData = await login({ email, password });
       // userData contains user _Id
       console.log(loginData.id);
       // User has been successfully logged in and added to state. Perform any additional actions you need here such as redirecting to a new page.
-      console.log("try getting user data...");
-      // API.getUserById(loginData.id);
-      // console.log(userData);
-      // setUser(...loginData);
+      console.log("received user data...");
+      console.log(loginData);
+      // why doesn't this work?
+      // setUser({user: loginData});
       console.log("User set to:")
-      // console.log(user)
+      console.log(user)
       // window.location.href = "/feed";
     } catch (err) {
       // Handle error responses from the API
@@ -89,28 +94,18 @@ function LoginRegDrop() {
   // ---- END OF REGISTER USER ----//
 
   return (
-    <Accordion>
-      {!isAuthenticated && (
+
+    <Container >
+
+      <Accordion >
         <Card className="loginDrop">
-          <Card.Header
-            className="loginAccBtn"
-            style={{ backgroundColor: "rgba(95, 158, 160, 0.45)" }}
-          >
-            <Accordion.Toggle
-              as={Button}
-              variant="link"
-              eventKey="0"
-              style={{ color: "white", fontFamily: "'Montserrat', sans-serif" }}
-            >
+          <Card.Header className="loginAccBtn" style={{ backgroundColor: "rgba(95, 158, 160, 0.45)" }} >
+            <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{ color: "white", fontFamily: "'Montserrat', sans-serif" }}>
               Login
-            </Accordion.Toggle>
+          </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="0">
-            <Form
-              className="regDropMenu"
-              onSubmit={loginHandleSubmit}
-              style={{ fontFamily: "'Montserrat', sans-serif" }}
-            >
+            <Form className="regDropMenu" onSubmit={loginHandleSubmit} style={{ fontFamily: "'Montserrat', sans-serif" }}>
               <Form.Group controlId="loginEmail">
                 <Form.Control
                   type="text"
@@ -125,64 +120,34 @@ function LoginRegDrop() {
                   placeholder="Password"
                 />
               </Form.Group>
-              <Button variant="primary" type="submit">
+
+              <Button variant="primary" type="submit" >
                 Submit
-              </Button>
+            </Button>
             </Form>
           </Accordion.Collapse>
         </Card>
-      )}
-
-      {!isAuthenticated && (
         <Card>
-          <Card.Header
-            className="regAccBtn"
-            style={{ backgroundColor: "rgba(95, 158, 160, 0.45)" }}
-          >
-            <Accordion.Toggle
-              as={Button}
-              variant="link"
-              eventKey="1"
-              style={{ color: "white", fontFamily: "'Montserrat', sans-serif" }}
-            >
+          <Card.Header className="regAccBtn" style={{ backgroundColor: "rgba(95, 158, 160, 0.45)" }} >
+            <Accordion.Toggle as={Button} variant="link" eventKey="1" style={{ color: "white", fontFamily: "'Montserrat', sans-serif" }}>
               Register
-            </Accordion.Toggle>
+          </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="1">
-            <Form
-              className="regDropMenu"
-              onSubmit={registerHandleSubmit}
-              style={{ fontFamily: "'Montserrat', sans-serif" }}
-            >
+            <Form className="regDropMenu" onSubmit={registerHandleSubmit} style={{ fontFamily: "'Montserrat', sans-serif" }}>
               <Form.Group controlId="registerName">
-                <Form.Control
-                  type="text"
-                  ref={registerNameRef}
-                  placeholder="What's your name?"
-                />
+                <Form.Control type="text" ref={registerNameRef} placeholder="What's your name?" />
               </Form.Group>
               <Form.Group controlId="registerEmail">
-                <Form.Control
-                  type="email"
-                  ref={registerEmailRef}
-                  placeholder="Enter email"
-                />
+                <Form.Control type="email" ref={registerEmailRef} placeholder="Enter email" />
               </Form.Group>
 
               <Form.Group controlId="registerPassword">
-                <Form.Control
-                  type="password"
-                  ref={registerPasswordRef}
-                  placeholder="Password"
-                />
+                <Form.Control type="password" ref={registerPasswordRef} placeholder="Password" />
               </Form.Group>
               <Form.Group controlId="registerNeighborhood">
                 <Form.Label>Select Your Neighorhood</Form.Label>
-                <Form.Control
-                  as="select"
-                  ref={registerNeighborhoodRef}
-                  style={{ fontFamily: "'Montserrat', sans-serif" }}
-                >
+                <Form.Control as="select" ref={registerNeighborhoodRef} style={{ fontFamily: "'Montserrat', sans-serif" }}>
                   <option>Zipcode 1</option>
                   <option>Zipcode 2</option>
                   <option>Zipcode 3</option>
@@ -193,49 +158,33 @@ function LoginRegDrop() {
 
               <Button variant="primary" type="submit">
                 Submit
-              </Button>
+            </Button>
             </Form>
           </Accordion.Collapse>
         </Card>
-      )}
+        <Card className="loginDrop">
+          <Card.Header className="loginAccBtn" style={{ backgroundColor: "rgba(95, 158, 160, 0.45)" }} >
+            <Accordion.Toggle as={Button} variant="link" eventKey="2" style={{ color: "white", fontFamily: "'Montserrat', sans-serif" }}>
+              How it Works
+          </Accordion.Toggle>
+          </Card.Header>
+          <Accordion.Collapse eventKey="2" style={{ margin: "1.5rem" }}>
+            <HowItWorks />
+          </Accordion.Collapse>
+        </Card>
+        <Card className="loginDrop">
+          <Card.Header className="loginAccBtn" style={{ backgroundColor: "rgba(95, 158, 160, 0.45)" }} >
+            <Accordion.Toggle as={Button} variant="link" eventKey="3" style={{ color: "white", fontFamily: "'Montserrat', sans-serif" }}>
+              Guidelines
+          </Accordion.Toggle>
+          </Card.Header>
+          <Accordion.Collapse eventKey="3" style={{ margin: "1.5rem" }}>
+            <Guidelines />
+          </Accordion.Collapse>
+        </Card>
+      </Accordion>
+    </Container>
 
-      <Card className="loginDrop">
-        <Card.Header
-          className="loginAccBtn"
-          style={{ backgroundColor: "rgba(95, 158, 160, 0.45)" }}
-        >
-          <Accordion.Toggle
-            as={Button}
-            variant="link"
-            eventKey="2"
-            style={{ color: "white", fontFamily: "'Montserrat', sans-serif" }}
-          >
-            How it Works
-          </Accordion.Toggle>
-        </Card.Header>
-        <Accordion.Collapse eventKey="2" style={{ margin: "1.5rem" }}>
-          <HowItWorks />
-        </Accordion.Collapse>
-      </Card>
-      <Card className="loginDrop">
-        <Card.Header
-          className="loginAccBtn"
-          style={{ backgroundColor: "rgba(95, 158, 160, 0.45)" }}
-        >
-          <Accordion.Toggle
-            as={Button}
-            variant="link"
-            eventKey="3"
-            style={{ color: "white", fontFamily: "'Montserrat', sans-serif" }}
-          >
-            Guidelines
-          </Accordion.Toggle>
-        </Card.Header>
-        <Accordion.Collapse eventKey="3" style={{ margin: "1.5rem" }}>
-          <Guidelines />
-        </Accordion.Collapse>
-      </Card>
-    </Accordion>
   );
 }
 

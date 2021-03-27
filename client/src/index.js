@@ -8,8 +8,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { StoreProvider } from "./store/AuthStore";
 import { UserProvider } from "./store/UserContext";
 
-// import UserStore from "./store/UserContext/index";
-
 ReactDOM.render(
   <React.StrictMode>
     <StoreProvider>

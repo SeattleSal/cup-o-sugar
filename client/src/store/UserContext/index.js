@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState } from "react";
 export const UserContext = createContext();
 
 export const UserProvider = props => {
-    const [user, setUser] = useState("Test");
+    const [user, setUser] = useState(initialState);
     return (
         <UserContext.Provider value={[ user, setUser ]}>
             {props.children}
@@ -12,14 +12,14 @@ export const UserProvider = props => {
     );
 }
 
-// const initialState = {
-//     _id: "",
-//     name: "",
-//     email: "",
-//     neighborhood: "",
-//     post: [],
-//     responses: []
-// };
+const initialState = {
+    id: "111111",
+    name: "Joe",
+    email: "joe@mail.com",
+    neighborhood: "98102",
+    // post: [],
+    // responses: []
+};
 
 // const reducer = (state, action) => {
 //     switch(action.type) {

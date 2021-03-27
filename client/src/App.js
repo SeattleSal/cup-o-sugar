@@ -16,7 +16,6 @@ import GuidelinesPage from "./pages/GuidelinesPage";
 // Import the useAuthTokenStore hook.
 // import { useAuthTokenStore, useIsAuthenticated } from "./utils/auth";
 import { BrowserRouter as Router, Route, Switch  } from "react-router-dom";
-// import { UserProvider } from "./store/UserContext";
 
 function App() {
   // ---- USER AUTHENTICATION ---- //
@@ -38,7 +37,6 @@ function App() {
   return (
     <Router>
             <Switch>
-              {/* <UserProvider> */}
               <Route exact strict path="/" component={LandingLogin}></Route>
               <Route exact strict path="/feed" component={GiveFeed}></Route>
               <Route exact strict path="/post" component={AddPost}></Route>
@@ -46,7 +44,6 @@ function App() {
               <Route exact strict path="/profile" component={ProfilePage}></Route>
               <Route exact strict path="/howitworks" component={HowItWorksPage}></Route>
               <Route exact path="*" component={LandingLogin}></Route>
-              {/* </UserProvider> */}
             </Switch>
     </Router>
   );
