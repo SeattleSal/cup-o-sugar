@@ -14,21 +14,17 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
-    // getPostsByUser - take in id from params
 
-    // find all posts by owner (user id)
+    // find posts by owner (user) id
     findByUser: function (req, res) {
-        // const ObjectId = require("mongoose").Types.ObjectId;
-        console.log(req.params.id);
-        // db.Post.find({ owner: new ObjectId(req.params.id)})
-        db.Post.find({ owner: req.params.id })
-            
+        const ObjectId = require("mongoose").Types.ObjectId;
+        console.log(req.params.id)
+        db.Post.find({ owner: new ObjectId(req.params.id) })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
 
-
-    // getPostById
+    // getPostBy Post Id
     findById: function (req, res) {
         db.Post.findById(req.params.id)
             .then(dbModel => res.json(dbModel))
@@ -61,6 +57,8 @@ module.exports = {
 
     // updatePost
     update: function (req, res) {
+        console.log(req.params.id)
+        console.log(req.body)
         db.Post.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));

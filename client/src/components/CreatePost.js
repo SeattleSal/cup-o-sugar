@@ -2,8 +2,14 @@ import React, { useState, useRef } from "react";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import API from "../utils/api";
+import { useAuthenticatedUser } from "../utils/auth"
 
 function CreatePost() {
+  // get user info
+  const user = useAuthenticatedUser();
+  if(user) console.log(user)
+  if(!user) console.log("No user")
+
   const [state, setState] = useState({
     postName: "",
     postDescription: "",
@@ -22,7 +28,6 @@ function CreatePost() {
 
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
-    // console.log("File: " + file)
     // set selectedFile and selectedFileName for upload
     setSelectedFile(file);
     setSelectedFileName(file.name);

@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-// import { useStoreContext } from '../utils/GlobalState';
+import { useIsAuthenticated, useAuthenticatedUser } from "../utils/auth";
 
 import logo from '../logo.svg';
-
-
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -15,45 +13,13 @@ import DeletePostBtn from './DeletePostBtn';
 
 function MyPostCard() {
 
-    // const [state, dispatch] = useStoreContext();
-
-    // const getAllPost = () => {
-    //     dispatch({ type: LOADING });
-    //     dispatch({ type: UPDATE_MYPOST });
-    // };
+    // get user data
+    const user = useAuthenticatedUser();
+    // console.log("Authenticated User:")
+    // console.log(user)
 
     const postData = [
-        {
-            name: "Tricycle",
-            type: "give",
-            status: "open",
-            description: "One year old, almost new",
-            picture: " https://cdn.pixabay.com/photo/2015/03/26/10/34/tricycle-691587_960_720.jpg",
-            owner: "Talor Swift",
-            responses: [
-                {
-                    owner: " 604d24a2eb7588d074b6ad67 ",   //Taylor Swift ID
-                    chosen: true,
-                }
-            ]
 
-
-        },
-
-        {
-            name: "Sofa",
-            type: "give",
-            status: "open",
-            description: "Four years old, it has couple of stains on the side",
-            picture: " https://cdn.pixabay.com/photo/2017/08/06/15/44/house-2593570_960_720.jpg",
-            owner: "Chaka Khan",
-            responses: [
-                {
-                    owner: " 604d24a2eb7588d074b6ad68",   // Chaka Kahn Id
-                    chosen: true,
-                }
-            ]
-        },
 
         {
             name: "Plant",
@@ -88,16 +54,11 @@ function MyPostCard() {
         },
     ];
 
-    // const removeMyPost = id => {
-    //     dispatch({
-    //         type: REMOVE_MYPOST,
-    //         _id: id
-    //     });
-    // };
+
 
     return (
-
-        postData.map((postData) => (
+        <div> {user && <h1>{user.name}</h1>}
+        {postData.map((postData) => (
 
             <Card className="card landingCard" style={{ fontFamily: "'Montserrat', sans-serif", margin: "1rem" }} >
                 <Card.Img variant="top" src={postData.picture} />
@@ -121,8 +82,8 @@ function MyPostCard() {
                     </Container>
                 </Card.Body>
             </Card>
-        ))
-
+        ))}
+        </div>
     );
 };
 

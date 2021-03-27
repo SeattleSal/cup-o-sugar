@@ -6,14 +6,11 @@ import registerServiceWorker from "./registerServiceWorker";
 import "../src/main.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { StoreProvider } from "./store/AuthStore";
-import { UserProvider } from "./store/UserContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <StoreProvider>
-      <UserProvider>
         <App />
-      </UserProvider>
     </StoreProvider>
   </React.StrictMode>,
   document.getElementById("root")

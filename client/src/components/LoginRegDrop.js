@@ -1,5 +1,5 @@
 import React, { useRef, useContext, useState, useMemo } from "react";
-import { useLogin, useIsAuthenticated } from "../utils/auth";
+import { useLogin, useIsAuthenticated, useAuthenticatedUser } from "../utils/auth";
 import API from "../utils/api";
 // import from "../"
 
@@ -12,11 +12,11 @@ import { Accordion } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import HowItWorks from "./HowItWorks";
 import Guidelines from "./Guidelines";
-import { UserContext } from "../store/UserContext";
+// import { UserContext } from "../store/UserContext";
 
 function LoginRegDrop() {
   const isAuthenticated = useIsAuthenticated();
-  const {user, setUser} = useContext(UserContext)
+  // const {user, setUser} = useContext(UserContext)
 
   // ----- LOGIN - hooks and functions -----//
   const loginEmailRef = useRef();
@@ -28,10 +28,6 @@ function LoginRegDrop() {
     const email = loginEmailRef.current.value;
     const password = loginPasswordRef.current.value;
 
-    // const value = useMemo(() => ({
-    //   user, setUser
-    // }), [user])
-
     try {
       const loginData = await login({ email, password });
       // userData contains user _Id
@@ -39,11 +35,7 @@ function LoginRegDrop() {
       // User has been successfully logged in and added to state. Perform any additional actions you need here such as redirecting to a new page.
       console.log("received user data...");
       console.log(loginData);
-      // why doesn't this work?
-      // setUser({user: loginData});
-      console.log("User set to:")
-      console.log(user)
-      // window.location.href = "/feed";
+      window.location.href = "/feed";
     } catch (err) {
       // Handle error responses from the API
       if (err.response && err.response.data) {

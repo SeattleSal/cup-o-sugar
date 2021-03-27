@@ -32,7 +32,6 @@ function App() {
   //   <h1>You are not logged in!</h1>
   // )} 
 
-  const [value, setValue] = useState("");
 
   return (
     <Router>
