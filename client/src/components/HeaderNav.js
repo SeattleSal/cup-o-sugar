@@ -19,7 +19,7 @@ function HeaderNav() {
 
     <Container>
 
-    <Jumbotron className="jumbotron jumbotron-fluid text-center col-12" style={{ backgroundColor:"rgba(95, 158, 160, 0.65)", borderBottomLeftRadius:"8px", borderBottomRightRadius:"8px" }} >
+    <Jumbotron className="jumbotron jumbotron-fluid text-center col-12" style={{ backgroundColor:"rgba(95, 158, 160, 0.65)", borderRadius:"8px" }} >
       <Accordion>
         <div className="navContainer container">
 
