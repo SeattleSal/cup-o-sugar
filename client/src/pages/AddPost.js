@@ -5,7 +5,6 @@ import Footer from '../components/Footer';
 import HeaderNav from '../components/HeaderNav';
 
 
-
 function AddPost () {
 
     return (

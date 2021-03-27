@@ -31,8 +31,9 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
 
-    // createPost
+    // createPost for logged in user
     create: async(req, res) => {
+        // logged in user id = req.user._id
         try {
             console.log(req.file.path)
             // upload image to cloudinary
@@ -43,6 +44,7 @@ module.exports = {
             // create post body with form data and cloudinary secure_url and public_id
             const value = {
                 ...req.body,
+                owner: req.user._id,
                 image: result.secure_url,
                 cloudinary_id: result.public_id
             }

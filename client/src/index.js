@@ -4,15 +4,15 @@ import "./index.css";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 import "../src/main.scss";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import { StoreProvider } from "./store/AuthStore";
 
 ReactDOM.render(
-    <React.StrictMode>
-        <StoreProvider>
-            <App />
-        </StoreProvider>
-    </React.StrictMode>,
-    document.getElementById('root')
+  <React.StrictMode>
+    <StoreProvider>
+        <App />
+    </StoreProvider>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 registerServiceWorker();

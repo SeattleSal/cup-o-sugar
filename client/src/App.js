@@ -2,7 +2,7 @@
 /* eslint-disable react/prefer-stateless-function */
 // import React, { Component } from "react";
 // import logo from "./logo.svg";
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 import LandingLogin from "./pages/LandingLogin";
@@ -16,6 +16,9 @@ import GuidelinesPage from "./pages/GuidelinesPage";
 // Import the useAuthTokenStore hook.
 // import { useAuthTokenStore, useIsAuthenticated } from "./utils/auth";
 import { BrowserRouter as Router, Route, Switch  } from "react-router-dom";
+// import PrivateRoute from "./components/PrivateRoute";
+import { useAuthTokenStore } from "./utils/auth";
+
 
 function App() {
   // ---- USER AUTHENTICATION ---- //
@@ -32,17 +35,19 @@ function App() {
   //   <h1>You are not logged in!</h1>
   // )} 
 
+  const isDone = useAuthTokenStore();
+
   return (
     <Router>
-            <Switch>
+            {isDone &&<Switch>
               <Route exact strict path="/" component={LandingLogin}></Route>
-              <Route exact strict path="/feed" component={GiveFeed}></Route>
+              <Route path="/feed" component={GiveFeed}></Route>
               <Route exact strict path="/post" component={AddPost}></Route>
               <Route exact strict path="/guidelines" component={GuidelinesPage}></Route>
               <Route exact strict path="/profile" component={ProfilePage}></Route>
               <Route exact strict path="/howitworks" component={HowItWorksPage}></Route>
               <Route exact path="*" component={LandingLogin}></Route>
-            </Switch>
+            </Switch>}
     </Router>
   );
 }
