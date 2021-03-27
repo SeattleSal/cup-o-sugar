@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import logo from '../logo.svg';
+import GetBtn from "../components/GetBtn";
 
 
 import Card from 'react-bootstrap/Card';
@@ -51,7 +52,7 @@ const cloudName="dl7nnmiar"
                         <Card.Text>
                             # of People interested.
                         </Card.Text>
-                        <Button variant="primary">Get</Button>
+                        <GetBtn />
                     </Container>
                 </Card.Body>
             </Card>
