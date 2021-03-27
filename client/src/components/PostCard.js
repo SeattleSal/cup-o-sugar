@@ -36,8 +36,18 @@ const cloudName="dl7nnmiar"
     }, [])
 
     const handleButtonClick = (e) => {
-        console.log("Button was clicked");
-        
+        console.log(e.target.value);
+        let tempPost = postData.map((post) => {
+            if(post._id === e.target.value) {
+                post.status = "claimed";
+            }
+            return post;
+        })
+        console.log(tempPost)
+        setPostData(tempPost)
+
+        //call API updatePost and send postID and status. back end will use auth ID
+
     }
     
     return (
@@ -54,7 +64,7 @@ const cloudName="dl7nnmiar"
                     <Card.Title>{postData.name}</Card.Title>
                     <Card.Text>{postData.description}</Card.Text>
                     <Container className="postCardFooter">
-                        <GetBtn onClick={handleButtonClick}/>
+                        <GetBtn value={postData._id} status={postData.status} onClick={handleButtonClick}/>
                     </Container>
                 </Card.Body>
             </Card>
