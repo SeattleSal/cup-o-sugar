@@ -13,7 +13,7 @@ function AddPost () {
 
             <HeaderNav />
             <CreatePost />
-            {/* <Footer /> */}
+            <Footer />
             
         </div>
     )
