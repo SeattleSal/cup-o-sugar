@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import API from "../utils/api";
+import { Container } from 'react-bootstrap';
 // import { useAuthenticatedUser, useIsAuthenticated } from "../utils/auth"
 
 function CreatePost() {
@@ -75,10 +76,10 @@ function CreatePost() {
   };
 
   return (
-    <div>
+    <Container>
       <Form
         onSubmit={handleSubmit}
-        style={{marginLeft:"2rem", marginRight:"2rem", fontFamily:"'Montserrat', sans-serif"}}
+        style={{ fontFamily:"'Montserrat', sans-serif"}}
       >
         <h3
           className="postOwnerName"
@@ -122,7 +123,8 @@ function CreatePost() {
           <img src={previewSource} alt="chosen" style={{ height: "300px" }} />
         </div>
       )}
-    </div>
+    </Container>
+
     // Redirect to FeedPage after submit
   );
 }
