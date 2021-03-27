@@ -10,6 +10,7 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   // get user by id
+  // create different function for find User by auth ID
   findById: function (req, res) {
     console.log("calling find by: " + req.params.id)
 
