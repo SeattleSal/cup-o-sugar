@@ -73,8 +73,8 @@ class API {
     }
 
     //getPostByUser
-    getPostsByUser(userId) {
-        return axios.get("/api/post/user/" + userId);
+    getPostsByUser() {
+        return axios.get("/api/post/user/");
     }
 
     // Create post
@@ -100,7 +100,7 @@ class API {
     // id = post ID
     deletePost(id) {
         console.log("Deleting post " + id);
-        return this.axios.delete("/api/post" + id);
+        return this.axios.delete("/api/post/" + id);
     }
 
 }

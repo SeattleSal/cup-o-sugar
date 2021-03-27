@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
-import { useLogin } from "../utils/auth";
-import api from "../utils/api";
+import React, { useRef, useContext, useState, useMemo } from "react";
+import { useLogin, useIsAuthenticated, useAuthenticatedUser } from "../utils/auth";
+import API from "../utils/api";
+// import from "../"
 
 import { Dropdown } from "react-bootstrap";
 import { Container } from "react-bootstrap";
@@ -13,19 +14,26 @@ import HowItWorks from "./HowItWorks";
 import Guidelines from "./Guidelines";
 
 function LoginRegDrop() {
+  const isAuthenticated = useIsAuthenticated();
+
   // ----- LOGIN - hooks and functions -----//
   const loginEmailRef = useRef();
   const loginPasswordRef = useRef();
-  // Get the helper login function from the `useLogin` hook.
   const login = useLogin();
 
   const loginHandleSubmit = async (e) => {
     e.preventDefault();
     const email = loginEmailRef.current.value;
     const password = loginPasswordRef.current.value;
+
     try {
-      await login({ email, password });
+      const loginData = await login({ email, password });
+      // userData contains user _Id
+      console.log(loginData.id);
       // User has been successfully logged in and added to state. Perform any additional actions you need here such as redirecting to a new page.
+      console.log("received user data...");
+      console.log(loginData);
+      window.location.href = "/feed";
     } catch (err) {
       // Handle error responses from the API
       if (err.response && err.response.data) {
@@ -57,12 +65,13 @@ function LoginRegDrop() {
 
     try {
       // Register the user.
-      await api.register({ name, email, password, neighborhood });
+      await API.register({ name, email, password, neighborhood });
 
       // User has been successfully registered, now log them in with the same information.
       await login({ email, password });
 
       // User has been successfully registered, logged in and added to state. Perform any additional actions you need here such as redirecting to a new page.
+      // window.location.href = "/feed";
     } catch (err) {
       // Handle error responses from the API. This will include
       if (err.response && err.response.data) {
@@ -79,6 +88,7 @@ function LoginRegDrop() {
     <Container >
 
       <Accordion >
+        {!isAuthenticated &&
         <Card className="loginDrop">
           <Card.Header className="loginAccBtn" style={{ backgroundColor: "rgba(95, 158, 160, 0.45)" }} >
             <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{ color: "white", fontFamily: "'Montserrat', sans-serif" }}>
@@ -94,7 +104,6 @@ function LoginRegDrop() {
                   placeholder="Enter email"
                 />
               </Form.Group>
-
               <Form.Group controlId="loginPassword">
                 <Form.Control
                   type="password"
@@ -103,12 +112,15 @@ function LoginRegDrop() {
                 />
               </Form.Group>
 
-              <Button variant="primary" type="submit" >
+              <Button variant="outline-primary" type="submit" >
                 Submit
             </Button>
             </Form>
           </Accordion.Collapse>
         </Card>
+        }
+        {!isAuthenticated &&
+
         <Card>
           <Card.Header className="regAccBtn" style={{ backgroundColor: "rgba(95, 158, 160, 0.45)" }} >
             <Accordion.Toggle as={Button} variant="link" eventKey="1" style={{ color: "white", fontFamily: "'Montserrat', sans-serif" }}>
@@ -138,12 +150,13 @@ function LoginRegDrop() {
                 </Form.Control>
               </Form.Group>
 
-              <Button variant="primary" type="submit">
+              <Button variant="outline-primary" type="submit">
                 Submit
             </Button>
             </Form>
           </Accordion.Collapse>
         </Card>
+}
         <Card className="loginDrop">
           <Card.Header className="loginAccBtn" style={{ backgroundColor: "rgba(95, 158, 160, 0.45)" }} >
             <Accordion.Toggle as={Button} variant="link" eventKey="2" style={{ color: "white", fontFamily: "'Montserrat', sans-serif" }}>

@@ -1,9 +1,12 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import API from "../utils/api";
+import { Container } from 'react-bootstrap';
+// import { useAuthenticatedUser, useIsAuthenticated } from "../utils/auth"
 
 function CreatePost() {
+
   const [state, setState] = useState({
     postName: "",
     postDescription: "",
@@ -22,7 +25,6 @@ function CreatePost() {
 
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
-    // console.log("File: " + file)
     // set selectedFile and selectedFileName for upload
     setSelectedFile(file);
     setSelectedFileName(file.name);
@@ -67,16 +69,17 @@ function CreatePost() {
       .then((dbPost) => {
         console.log("Post posted!");
         console.log(dbPost);
+        // change this to Link
         window.location.href = "/feed";
       })
       .catch((err) => console.log("Post creation error: " + err));
   };
 
   return (
-    <div>
+    <Container>
       <Form
         onSubmit={handleSubmit}
-        style={{marginLeft:"2rem", marginRight:"2rem", fontFamily:"'Montserrat', sans-serif"}}
+        style={{ fontFamily:"'Montserrat', sans-serif"}}
       >
         <h3
           className="postOwnerName"
@@ -120,7 +123,7 @@ function CreatePost() {
           <img src={previewSource} alt="chosen" style={{ height: "300px" }} />
         </div>
       )}
-    </div>
+    </Container>
 
     // Redirect to FeedPage after submit
   );

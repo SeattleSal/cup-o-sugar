@@ -5,7 +5,6 @@ import Footer from '../components/Footer';
 import HeaderNav from '../components/HeaderNav';
 
 
-
 function AddPost () {
 
     return (
@@ -14,7 +13,7 @@ function AddPost () {
 
             <HeaderNav />
             <CreatePost />
-            {/* <Footer /> */}
+            <Footer />
             
         </div>
     )

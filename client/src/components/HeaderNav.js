@@ -1,6 +1,5 @@
 import React from 'react';
-import { useLogout } from '../utils/auth';
-
+import { useLogout, useIsAuthenticated } from '../utils/auth';
 
 import { Container, Jumbotron } from 'react-bootstrap';
 // import { Container } from 'react-bootstrap';
@@ -10,8 +9,10 @@ import { Card } from 'react-bootstrap';
 
 function HeaderNav() {
 
+  // user logged in or not
+  const isAuthenticated = useIsAuthenticated();
+
   // ---- LOGOUT  ---- //
-  // I added as a button but feel free to change it to different component as long as it has an event that calls logout
   const logout = useLogout();
   // END OF LOGOUT FUNCTION //
 
@@ -19,7 +20,7 @@ function HeaderNav() {
 
     <Container>
 
-    <Jumbotron className="jumbotron jumbotron-fluid text-center col-12" style={{ backgroundColor:"rgba(95, 158, 160, 0.65)", borderBottomLeftRadius:"8px", borderBottomRightRadius:"8px" }} >
+    <Jumbotron className="jumbotron jumbotron-fluid text-center col-12" style={{ backgroundColor:"rgba(95, 158, 160, 0.65)", borderRadius:"8px" }} >
       <Accordion>
         <div className="navContainer container">
 
@@ -39,6 +40,7 @@ function HeaderNav() {
             <a href= "/profile" style={{color:"rgba(95, 158, 160, 0.65)"}}>Profile</a>
             <a href= "/howitworks" style={{color:"rgba(95, 158, 160, 0.65)"}}>How It Works</a>
             <a href= "/guidelines" style={{color:"rgba(95, 158, 160, 0.65)"}}>Guidelines</a>
+            {/* {isAuthenticated && <Button variant="link" onClick={logout} style={{color:"rgba(95, 158, 160, 0.65)"}}>Log Out</Button>} */}
             <Button variant="link" onClick={logout} style={{color:"rgba(95, 158, 160, 0.65)"}}>Log Out</Button>
           </Card>
         </Accordion.Collapse>
