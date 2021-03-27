@@ -65,42 +65,19 @@ class API {
 
     }
 
-    // end of auth API calls 
+    // --- END OF AUTH API CALLS --- //
 
-    
-
+    // get all Posts
     getAllPost() {
-
-        // Gets all posts  
         return axios.get("/api/post");
-
     }
 
     //getPostByUser
-
-    getPostByUser(id) {
-
-       
-        // Gets the post with the given id
-        return axios.get("/api/post/" + id);
-
+    getPostsByUser(userId) {
+        return axios.get("/api/post/user/" + userId);
     }
 
-
-
-    // Add this later onse there is a delete button option and save button option
-
-    // Deletes the post with the given id
-
-    //   return axios.delete("/api/posts/" + id);
-
-    // Saves a post to the database
-
-    //   return axios.post("/api/posts", postData);
-
-
-
-    //create post
+    // Create post
     createPost(postData) {
         console.log("Posting data: ")
         console.log(postData)
@@ -111,51 +88,20 @@ class API {
         });
     }
 
+    // Update Post when chosen by user
+    // id = post ID
+    // postData = { "status": "closed", "responseOwner": userID}
+    updatePost(id, postData) {
+        console.log("Updating Post" + id);
+        return this.axios.put("/api/post/" + id, postData);
+    }
 
-    //getResponse
-
-    // getResponse() {
-
-    //     const responseData = [
-    //         {
-    //             owner: "Talor Swift",
-    //             owner: "",
-    //             chosen: true,
-
-    //         },
-
-    //         {
-    //             owner: "Chaka Khan",
-    //             owner: "",
-    //             chosen: false,
-
-
-    //         },
-
-    //         {
-    //             owner: "Mariah Cary",
-    //             owner: "",
-    //             chosen: true,
-
-
-    //         },
-
-    //         {
-
-    //             owner: "Shade",
-    //             owner: "",
-    //             chosen: false,
-
-    //         },
-    //     ]
-    //     return responseData;
-
-    // }
-
-
-    //delete a post-wait
-
-
+    // Delete a post
+    // id = post ID
+    deletePost(id) {
+        console.log("Deleting post " + id);
+        return this.axios.delete("/api/post" + id);
+    }
 
 }
 

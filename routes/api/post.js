@@ -4,25 +4,20 @@ const cloudinary = require("../../utils/cloudinary");
 const upload = require("../../utils/multer");
 const db = require("../../models");
 
-
-// Matches with "/api/user"
-
+// Matches with "/api/post"
 router
-    .route("/")
-    .get(postController.findAll)
-    .post(upload.single('image'), postController.create);
+  .route("/")
+  .get(postController.findAll)
+  .post(upload.single("image"), postController.create);
 
-
-// Matches with "/api/posts/:id"
+// Matches with "/api/post/:id"
 router
-    .route("/:id")
-    .get(postController.findById)
-    .put(postController.update)
-    .delete(postController.remove);
+  .route("/:id")
+  .get(postController.findById)
+  .put(postController.update)
+  .delete(postController.remove);
 
-    // router.route("/user/:id")
-    // .get(postController.findByUser)
-
-
+// matches with "/api/post/user/:userId"
+router.route("/user/:id").get(postController.findByUser);
 
 module.exports = router;
