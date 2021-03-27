@@ -1,14 +1,15 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import API from '../utils/api';
 
 
 
-const DeletePostBtn = props => {
+const DeletePostBtn = (deletePost ) => {
     return (
         //   <span className="delete-btn" {...props} role="button" tabIndex="0">
         //     ✗
         //   </span>
-        <Button className="delete-btn" {...props} tabIndex="0" variant="danger">Delete</Button>
+        <Button className="delete-btn"  tabIndex="0" variant="outline-danger" onClick={deletePost} >Delete</Button>
     );
 };
 

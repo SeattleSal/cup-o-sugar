@@ -103,7 +103,7 @@ function LoginRegDrop() {
                 />
               </Form.Group>
 
-              <Button variant="primary" type="submit" >
+              <Button variant="outline-primary" type="submit" >
                 Submit
             </Button>
             </Form>
@@ -138,7 +138,7 @@ function LoginRegDrop() {
                 </Form.Control>
               </Form.Group>
 
-              <Button variant="primary" type="submit">
+              <Button variant="outline-primary" type="submit">
                 Submit
             </Button>
             </Form>

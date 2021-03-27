@@ -100,7 +100,7 @@ class API {
     // id = post ID
     deletePost(id) {
         console.log("Deleting post " + id);
-        return this.axios.delete("/api/post" + id);
+        return this.axios.delete("/api/post/" + id);
     }
 
 }
