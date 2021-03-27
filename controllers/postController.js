@@ -16,8 +16,13 @@ module.exports = {
     },
     // getPostsByUser - take in id from params
 
+    // find all posts by owner (user id)
     findByUser: function (req, res) {
+        // const ObjectId = require("mongoose").Types.ObjectId;
+        console.log(req.params.id);
+        // db.Post.find({ owner: new ObjectId(req.params.id)})
         db.Post.find({ owner: req.params.id })
+            
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },

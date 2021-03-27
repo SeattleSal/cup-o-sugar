@@ -59,7 +59,8 @@ router.post("/login", validateBodyWith( loginValidator ), async (req, res) => {
 
     const payload = {
       id: secureUser._id,
-      email: secureUser.email
+      email: secureUser.email,
+      name: secureUser.name
     };
 
     // Create a signed JWT token to send back to the client for reauthentication.

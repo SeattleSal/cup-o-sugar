@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
 import { useLogin, useIsAuthenticated } from "../utils/auth";
 import API from "../utils/api";
+// import from "../"
 
 import { Dropdown } from "react-bootstrap";
 import { Container } from "react-bootstrap";
@@ -11,10 +12,11 @@ import { Accordion } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import HowItWorks from "./HowItWorks";
 import Guidelines from "./Guidelines";
-import { UserContext } from "../store/UserContext";
+// import { UserContext } from "../store/UserContext";
 
 function LoginRegDrop() {
   const isAuthenticated = useIsAuthenticated();
+  // const [user, setUser] = useContext(UserContext);
 
   // ----- LOGIN - hooks and functions -----//
   const loginEmailRef = useRef();
@@ -33,7 +35,10 @@ function LoginRegDrop() {
       console.log("try getting user data...");
       // API.getUserById(loginData.id);
       // console.log(userData);
-      window.location.href = "/feed";
+      // setUser(...loginData);
+      console.log("User set to:")
+      // console.log(user)
+      // window.location.href = "/feed";
     } catch (err) {
       // Handle error responses from the API
       if (err.response && err.response.data) {
