@@ -35,7 +35,10 @@ const cloudName="dl7nnmiar"
           
     }, [])
 
-    
+    const handleButtonClick = (e) => {
+        console.log("Button was clicked");
+        
+    }
     
     return (
 
@@ -48,11 +51,7 @@ const cloudName="dl7nnmiar"
                     <Card.Title>{postData.name}</Card.Title>
                     <Card.Text>{postData.description}</Card.Text>
                     <Container className="postCardFooter">
-                        <Card.Img className="postOwnerPhoto" src={logo} />
-                        <Card.Text>
-                            # of People interested.
-                        </Card.Text>
-                        <GetBtn />
+                        <GetBtn onClick={handleButtonClick}/>
                     </Container>
                 </Card.Body>
             </Card>
