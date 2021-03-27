@@ -33,7 +33,7 @@ function LoginRegDrop() {
       // User has been successfully logged in and added to state. Perform any additional actions you need here such as redirecting to a new page.
       console.log("received user data...");
       console.log(loginData);
-      // window.location.href = "/feed";
+      window.location.href = "/feed";
     } catch (err) {
       // Handle error responses from the API
       if (err.response && err.response.data) {
@@ -71,7 +71,7 @@ function LoginRegDrop() {
       await login({ email, password });
 
       // User has been successfully registered, logged in and added to state. Perform any additional actions you need here such as redirecting to a new page.
-      window.location.href = "/feed";
+      // window.location.href = "/feed";
     } catch (err) {
       // Handle error responses from the API. This will include
       if (err.response && err.response.data) {

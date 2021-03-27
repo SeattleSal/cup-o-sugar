@@ -73,8 +73,8 @@ class API {
     }
 
     //getPostByUser
-    getPostsByUser(userId) {
-        return axios.get("/api/post/user/" + userId);
+    getPostsByUser() {
+        return axios.get("/api/post/user/");
     }
 
     // Create post
