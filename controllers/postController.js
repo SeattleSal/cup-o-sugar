@@ -9,17 +9,19 @@ module.exports = {
 
     // getAllPosts
     findAll: function (req, res) {
+        console.log("Get all posts")
         db.Post.find(req.query)
             .sort({ date: -1 })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
 
-    // find posts by owner (user) id
-    findByUser: function (req, res) {
+    // find posts by owner (user) id req.user._id
+    findPostsByUser: function (req, res) {
+        console.log("Find by user from post Controller")
         const ObjectId = require("mongoose").Types.ObjectId;
-        console.log(req.params.id)
-        db.Post.find({ owner: new ObjectId(req.params.id) })
+        console.log(req.user._id)
+        db.Post.find({ owner: new ObjectId(req.user._id) })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },

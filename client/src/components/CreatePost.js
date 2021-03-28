@@ -1,9 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import API from "../utils/api";
 import { Container } from 'react-bootstrap';
-// import { useAuthenticatedUser, useIsAuthenticated } from "../utils/auth"
 
 function CreatePost() {
 
