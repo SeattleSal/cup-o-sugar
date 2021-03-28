@@ -14,11 +14,12 @@ router
 // Matches with "/api/post/:id"
 router
   .route("/:id")
-  .get(postController.findById)
+  // .get(postController.findById)
+  .get(authenticatedUser, postController.findPostsByUser)
   .put(postController.update)
   .delete(postController.remove);
 
 // matches with "/api/post/user/:userId"
-router.route("/user/:id").get(authenticatedUser, postController.findByUser);
+// router.route("/user").get(postController.findPostsByUser);
 
 module.exports = router;

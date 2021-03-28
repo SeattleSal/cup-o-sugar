@@ -9,6 +9,12 @@ module.exports = {
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
+  // return authenticated user info
+  findUser: function (req, res) { 
+    User.find(req.user._id)
+    .then((userData) => res.json(userData))
+    .catch((err) => res.status(422).json(err));
+  },
   // get user by id
   // create different function for find User by auth ID
   findById: function (req, res) {

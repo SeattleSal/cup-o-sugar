@@ -2,7 +2,7 @@
 /* eslint-disable react/prefer-stateless-function */
 // import React, { Component } from "react";
 // import logo from "./logo.svg";
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 
 import LandingLogin from "./pages/LandingLogin";
@@ -13,10 +13,7 @@ import HowItWorksPage from "./pages/HowItWorksPage";
 import ProfilePage from "./pages/ProfilePage";
 import GuidelinesPage from "./pages/GuidelinesPage";
 
-// Import the useAuthTokenStore hook.
-// import { useAuthTokenStore, useIsAuthenticated } from "./utils/auth";
 import { BrowserRouter as Router, Route, Switch  } from "react-router-dom";
-// import PrivateRoute from "./components/PrivateRoute";
 import { useAuthTokenStore } from "./utils/auth";
 
 
