@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 // import { useStoreContext } from '../utils/GlobalState';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -7,34 +7,16 @@ import API from '../utils/api';
 import { Image } from 'cloudinary-react';
 
 
-function MyPostCard({userID}) {
+function MyPostCard({ myPosts, setMyPosts}) {
+    // myPosts and setMyPosts come in as props
 
     const cloudName = "dl7nnmiar"
-    const [myPost, setMyPosts] = useState([]);
 
-    useEffect(() => {
-        // get user ID
-        API.getUserInfo()
-        .then(userInfo => {
-            let userId = userInfo.data[0]._id;
-            // console.log("User ID: " + userId);
-
-            // get all posts and filter on owner = user ID
-            API.getAllPost()
-            .then(results => {
-                let posts = results.data.filter((post) => post.owner === userId);
-                setMyPosts(posts);
-            })
-            .catch(err => console.log("Get posts error: " + err));
-        })
-        .catch(err => console.log("Get user info error: " + err))
-
-    }, [])
-
+    // delete post
     const deleteMyPost = (event) => {
         // console.log(event.target.value);
         let deleteID = event.target.value
-        const tempPost = myPost.filter((post) => post._id !== deleteID);
+        const tempPost = myPosts.filter((post) => post._id !== deleteID);
 
         // console.log(postID)
         API.deletePost(deleteID)
@@ -47,8 +29,7 @@ function MyPostCard({userID}) {
 
     return (
 
-
-        myPost.map((myPost) => (
+        myPosts.map((myPost) => (
 
             <Card className="card landingCard" key={myPost._id} style={{ fontFamily: "'Montserrat', sans-serif", margin: "1rem" }} >
                 {/* <Container> */}

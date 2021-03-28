@@ -11,6 +11,30 @@ import API from "../utils/api";
 
 function FeedTabs() {
   const [key, setKey] = useState("home");
+  const [myPosts, setMyPosts] = useState([]);
+  const [postData, setPostData] = useState([]);
+
+  // set postData and myPosts for PostCard and MyPostCards
+  useEffect(() => {
+    // get user ID
+    API.getUserInfo()
+      .then((userInfo) => {
+        let userId = userInfo.data[0]._id;
+
+        // get all posts and filter on user ID
+        API.getAllPost()
+          .then((results) => {
+            // set My posts
+            let posts = results.data.filter((post) => post.owner === userId);
+            setMyPosts(posts);
+            // set all other posts
+            let notMyPosts = results.data.filter((post) => post.owner !== userId);
+            setPostData(notMyPosts);
+          })
+          .catch((err) => console.log("Get posts error: " + err));
+      })
+      .catch((err) => console.log("Get user info error: " + err));
+  }, []);
 
   return (
     <Container style={{ fontFamily: "'Montserrat', sans-serif" }}>
@@ -32,7 +56,7 @@ function FeedTabs() {
           }}
         >
           <Row style={{ justifyContent: "center" }}>
-            <PostCard />
+            <PostCard postData={postData} setPostData={setPostData} />
           </Row>
         </Tab>
         <Tab
@@ -43,7 +67,7 @@ function FeedTabs() {
           style={{ flexWrap: "wrap", justifyContent: "center" }}
         >
           <Row style={{ justifyContent: "center" }}>
-            <MyPostCard />
+            <MyPostCard myPosts={myPosts} setMyPosts={setMyPosts} />
           </Row>
         </Tab>
       </Tabs>

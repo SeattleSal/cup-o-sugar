@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 // import logo from '../logo.svg';
 import GetBtn from "../components/GetBtn";
-
 import Card from 'react-bootstrap/Card';
 // import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -10,22 +9,12 @@ import API from '../utils/api';
 import { Image } from 'cloudinary-react';
 
 
-function PostCard() {
+function PostCard({ postData, setPostData }) {
 const cloudName="dl7nnmiar"
-    //state for all post and set all posts
-    const [postData, setPostData] = useState([]);
 
-    useEffect(() => {
-        // console.log("All Gives Feed")
-        API.getAllPost()
-              .then(results => {
-                // console.log(results.data)
-                setPostData (results.data)
-              })
-              .catch(err => console.log(err));
-          
-    }, [])
+    // postData and setPostData come in as props
 
+    // update post as claimed
     const handleButtonClick = (e) => {
         // console.log(e.target.value);
         let tempPost = postData.map((post) => {
