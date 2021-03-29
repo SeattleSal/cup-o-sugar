@@ -8,7 +8,7 @@ import { Image } from 'cloudinary-react';
 import { Button } from 'react-bootstrap';
 
 
-function PostCard({ postData, setPostData }) {
+function PostCard({ postData, setPostData, userId }) {
 const cloudName="dl7nnmiar"
 
     // postData and setPostData come in as props
@@ -19,6 +19,7 @@ const cloudName="dl7nnmiar"
         let tempPost = postData.map((post) => {
             if(post._id === e.target.value) {
                 post.status = "claimed";
+                console.log(userId)
             }
             return post;
         })
@@ -44,7 +45,9 @@ const cloudName="dl7nnmiar"
                     <Card.Text>{postData.description}</Card.Text>
                     <Container className="postCardFooter" >
                         <GetBtn value={postData._id} status={postData.status} onClick={handleButtonClick}/>
+                        {postData.status === "claimed" &&
                         <Button variant="outline-primary" type="submit" style={{marginLeft:"5px"}}>Insert owner's contact information.</Button>
+                        }   
                     </Container>
                 </Card.Body>
             </Card>
