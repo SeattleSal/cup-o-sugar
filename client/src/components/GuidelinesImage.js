@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 
-import rulesSample from '../assets/rulesSample.jpeg';
+import rulesBlocks from '../assets/rulesBlocks.jpeg';
 
 
 function GuidelinesImage() {
@@ -12,7 +12,7 @@ function GuidelinesImage() {
 
             <div style={{ display: "flex", justifyContent: "center" }}>
 
-                <img src={rulesSample} alt="Wooden Blocks Rules" style={{ width: "100%", justifyContent: "center", marginBottom: "1rem", borderRadius: "8px" }} />
+                <img src={rulesBlocks} alt="Wooden Blocks Rules" style={{ width: "100%", justifyContent: "center", marginBottom: "1rem", borderRadius: "8px" }} />
 
             </div>
         </Container>
