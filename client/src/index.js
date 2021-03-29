@@ -8,11 +8,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { StoreProvider } from "./store/AuthStore";
 
 ReactDOM.render(
-  <React.StrictMode>
     <StoreProvider>
         <App />
-    </StoreProvider>
-  </React.StrictMode>,
+    </StoreProvider>,
   document.getElementById("root")
 );
 registerServiceWorker();

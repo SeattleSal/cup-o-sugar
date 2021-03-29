@@ -1,9 +1,9 @@
-import React, { useRef, useContext, useState, useMemo } from "react";
-import { useLogin, useIsAuthenticated, useAuthenticatedUser } from "../utils/auth";
+import React, { useRef } from "react";
+import { useLogin, useIsAuthenticated } from "../utils/auth";
 import API from "../utils/api";
 // import from "../"
 
-import { Dropdown } from "react-bootstrap";
+// import { Dropdown } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";

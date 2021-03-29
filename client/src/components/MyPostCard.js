@@ -1,53 +1,37 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 // import { useStoreContext } from '../utils/GlobalState';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import API from '../utils/api';
-import { Image, Transformation, CloudinaryContext } from 'cloudinary-react';
+import { Image } from 'cloudinary-react';
 
 
-function MyPostCard() {
+function MyPostCard({ myPosts, setMyPosts}) {
+    // myPosts and setMyPosts come in as props
 
-    // const [state, dispatch] = useStoreContext();
     const cloudName = "dl7nnmiar"
-    const [myPost, setMyPost] = useState([]);
 
-    // const getAllPost = () => {
-    //     dispatch({ type: LOADING });
-    //     dispatch({ type: UPDATE_MYPOST });
-    // };
-
-    useEffect(() => {
-        API.getAllPost()
-            .then(results => {
-                console.log(results.data)
-                setMyPost(results.data)
-            })
-            .catch(err => console.log(err));
-
-    }, [])
-
+    // delete post
     const deleteMyPost = (event) => {
-        console.log(event.target.value);
+        // console.log(event.target.value);
         let deleteID = event.target.value
-        const tempPost = myPost.filter((post) => post._id != deleteID);
+        const tempPost = myPosts.filter((post) => post._id !== deleteID);
 
         // console.log(postID)
         API.deletePost(deleteID)
             .then(results => {
-                console.log(results.data);
-                setMyPost(tempPost);
+                // console.log(results.data);
+                setMyPosts(tempPost);
             })
             .catch((err) => console.log(err));
     };
 
     return (
 
+        myPosts.map((myPost) => (
 
-        myPost.map((myPost) => (
-
-            <Card className="card landingCard" postID={myPost._id} style={{ fontFamily: "'Montserrat', sans-serif", margin: "1rem" }} >
+            <Card className="card landingCard" key={myPost._id} style={{ fontFamily: "'Montserrat', sans-serif", margin: "1rem" }} >
                 {/* <Container> */}
                 <Card.Body style={{ display: "flex", justifyContent: "center" }} >
                     <Image variant="top" cloudName={cloudName} publicId={myPost.cloudinary_id} crop="scale" style={{ maxHeight: "13rem" }} />
