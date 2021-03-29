@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import GetBtn from "../components/GetBtn";
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
-// import API from '../utils/api';
+import API from '../utils/api';
 import { Image } from 'cloudinary-react';
 import { Button } from 'react-bootstrap';
 
 
 function PostCard({ postData, setPostData, userId }) {
-const cloudName="dl7nnmiar"
 
     // postData and setPostData come in as props
+    const [postOwnerInfo, setPostOwnerInfo] = useState("");
+    // const [alreadyClaimed, setAlreadyClaimed] = useState(false);
+    const cloudName="dl7nnmiar";
+
+    // useEffect(() => {
+    //     if (postData.status === "claimed") {
+    //         setAlreadyClaimed(true);
+    //     }
+    // }, [])
 
     // update post as claimed
     const handleButtonClick = (e) => {
@@ -24,9 +32,17 @@ const cloudName="dl7nnmiar"
             return post;
         })
         // console.log(tempPost)
-        setPostData(tempPost)
 
         //call API updatePost and send postID and status. back end will use auth ID
+        API.updatePost(e.target.value, { status: "claimed"})
+        .then((data) => {
+            // data has the email of owner 
+            console.log(data.data)
+            setPostData(tempPost);
+            setPostOwnerInfo(data.data.owner.email);
+
+        })
+        .catch(err => console.log(err));
 
     }
     
@@ -46,7 +62,7 @@ const cloudName="dl7nnmiar"
                     <Container className="postCardFooter" >
                         <GetBtn value={postData._id} status={postData.status} onClick={handleButtonClick}/>
                         {postData.status === "claimed" &&
-                        <Button variant="outline-primary" type="submit" style={{marginLeft:"5px"}}>Insert owner's contact information.</Button>
+                        <Button variant="outline-primary" type="submit" style={{marginLeft:"5px"}}>You got it! Contact owner at {postOwnerInfo}</Button>
                         }   
                     </Container>
                 </Card.Body>

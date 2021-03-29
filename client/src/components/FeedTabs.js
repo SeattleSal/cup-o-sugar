@@ -26,7 +26,7 @@ function FeedTabs() {
             let posts = results.data.filter((post) => post.owner === userId);
             setMyPosts(posts);
             // set all other posts
-            let notMyPosts = results.data.filter((post) => post.owner !== userId);
+            let notMyPosts = results.data.filter((post) => post.owner !== userId && post.status==="open");
             setPostData(notMyPosts);
           })
           .catch((err) => console.log("Get posts error: " + err));

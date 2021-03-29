@@ -1,15 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {Button} from "react-bootstrap";
 
 const GetBtn = props => {
 
     const [buttonDisabled, setButtonDisabled] = useState(false);
+    const [buttonMessage, setButtonMessage] = useState("Get");
 
     // disable button once the post item is claimed
     const handleButtonClick = (e) => {
         setButtonDisabled(true);
+        setButtonMessage("It's yours!"); 
         props.onClick(e);
     }
+
+    useEffect(() => {
+        if (props.status === "claimed") {
+            setButtonDisabled(true);
+            setButtonMessage("Already Claimed!")
+        }
+    }, [])
 
     return (
         <Button className="get-btn rounded" {...props} 
@@ -17,7 +26,7 @@ const GetBtn = props => {
                 tabIndex="0" 
                 disabled = { buttonDisabled }
                 style={{backgroundColor:"rgba(95, 158, 160, 0.65)", color: "white" }}>
-            {props.status === "open" ? "Get" : "Claimed"}
+            {buttonMessage}
         </Button>
     );
 };

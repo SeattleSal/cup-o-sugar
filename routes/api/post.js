@@ -16,7 +16,7 @@ router
   .route("/:id")
   // .get(postController.findById)
   .get(authenticatedUser, postController.findPostsByUser)
-  .put(postController.update)
+  .put(authenticatedUser, postController.update)
   .delete(postController.remove);
 
 // matches with "/api/post/user/:userId"

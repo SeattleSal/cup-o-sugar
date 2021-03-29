@@ -5,7 +5,7 @@ const User = require("./User");
 const postSchema = new Schema({
   name: { type: String, required: true },
   type: { type: String, required: true, default: "give" }, // Give, Ask
-  status: { type: String, required: true, default: "open" }, // open, closed
+  status: { type: String, required: true, default: "open" }, // open, claimed
   description: { type: String, required: true },
   image: { type: String }, // use url for now, change if upload pics
   cloudinary_id: { type: String},
