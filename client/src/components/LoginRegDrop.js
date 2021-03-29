@@ -91,7 +91,7 @@ function LoginRegDrop() {
         {!isAuthenticated &&
         <Card className="loginDrop">
           <Card.Header className="loginAccBtn" style={{ backgroundColor: "rgba(95, 158, 160, 0.45)" }} >
-            <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{ color: "white", fontFamily: "'Montserrat', sans-serif" }}>
+            <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{ color: "white", fontFamily: "'Montserrat', sans-serif", fontWeight:"300" }}>
               Login
           </Accordion.Toggle>
           </Card.Header>
