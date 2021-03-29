@@ -2,7 +2,6 @@ import React from 'react';
 import { useLogout, useIsAuthenticated } from '../utils/auth';
 
 import { Container, Jumbotron } from 'react-bootstrap';
-// import { Container } from 'react-bootstrap';
 import { Accordion } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
@@ -37,7 +36,8 @@ function HeaderNav() {
         <Accordion.Collapse eventKey="0">
           <Card style={{fontFamily:"'Montserrat', sans-serif"}}>
             <a href= "/" style={{color:"rgba(95, 158, 160, 0.65)"}}>Home</a>
-            <a href= "/profile" style={{color:"rgba(95, 158, 160, 0.65)"}}>Profile</a>
+            <a href= "/feed" style={{color:"rgba(95, 158, 160, 0.65)"}}>Give Feed</a>
+            {/* <a href= "/profile" style={{color:"rgba(95, 158, 160, 0.65)"}}>Profile</a> */}
             <a href= "/howitworks" style={{color:"rgba(95, 158, 160, 0.65)"}}>How It Works</a>
             <a href= "/guidelines" style={{color:"rgba(95, 158, 160, 0.65)"}}>Guidelines</a>
             {/* {isAuthenticated && <Button variant="link" onClick={logout} style={{color:"rgba(95, 158, 160, 0.65)"}}>Log Out</Button>} */}

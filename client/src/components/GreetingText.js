@@ -6,7 +6,7 @@ function GreetingText () {
 
     return (
 
-        <p className="lead col-12" style={{ fontFamily: "'Lobster', cursive", color: "rgba(95, 158, 160, 0.95)" }} >A hyper local neighborhood experience</p>
+        <p className="lead col-12" style={{ fontFamily: "'Lobster', cursive", color: "rgba(95, 158, 160, 0.95)" }} >A hyperlocal neighborhood experience</p>
 
     );
 };

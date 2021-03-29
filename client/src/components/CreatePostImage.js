@@ -2,7 +2,6 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 
 import giveBoxSample from '../assets/giveBoxSample.jpeg';
-// import giveStampSample from '../assets/giveStampSample.jpeg';
 
 
 function CreatePostImage() {

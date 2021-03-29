@@ -1,13 +1,9 @@
 import React, { useRef } from "react";
 import { useLogin, useIsAuthenticated } from "../utils/auth";
 import API from "../utils/api";
-// import from "../"
-
-// import { Dropdown } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-// import {DropdownButton} from 'react-bootstrap/DropdownButton';
 import { Accordion } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import HowItWorks from "./HowItWorks";
