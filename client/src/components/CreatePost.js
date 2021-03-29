@@ -82,9 +82,9 @@ function CreatePost() {
       >
         <h3
           className="postOwnerName"
-          style={{ fontFamily: "'Lobster', cursive" }}
+          style={{ fontFamily: "'Lobster', cursive", color: "rgba(95, 158, 160, 0.95)" }}
         >
-          Owner Name
+          Give something away...
         </h3>
 
         <Form.Control
@@ -112,7 +112,7 @@ function CreatePost() {
             onChange={handleFileInputChange}
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="outline-primary" type="submit">
           Post
         </Button>
       </Form>

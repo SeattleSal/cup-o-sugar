@@ -5,35 +5,39 @@ import { Container } from "react-bootstrap";
 function HowItWorks() {
     return (
         <Container>
-            <Card style={{ fontFamily:"'Montserrat', sans-serif"}} >
-                <Card.Header style={{ fontFamily:"'Lobster', cursive", fontSize: "1.5rem", textAlign: "center" }} >How It Works</Card.Header>
-                <p>
-                    Cup of Sugar is a hyper-local buy-nothing neighborhood experience.
-                </p>
+            <Card style={{ fontFamily: "'Montserrat', sans-serif" }} >
+                <Card.Header style={{ fontFamily: "'Lobster', cursive", fontSize: "1.5rem", textAlign: "center", color:"white", backgroundColor:"rgba(95, 158, 160, 0.65)" }} >How It Works</Card.Header>
+                <Container style={{color:"white", backgroundColor:"rgba(95, 158, 160, 0.45)"}}>
 
-                <p>
-                    Once you create your account from the home page of the app, you will have the ability to view posts from your nearby neighbors who want to rehome their unwanted items.
-                </p>
-                    
-                <p>
-                    If you see something you like, click the "Get" button at the bottom of the photo and the owner of the item will be notified. If the owner wants to give the item to you, they will send an email directly to you so be sure to keep an eye on your email!
-                </p>
-                    
-                <p>
-                    If you have an item that you woould like to rehome, click the "+" button in the top right hand corner. Add a photo of your item along with a description and click "Post". Your item will appear in the main feed for your neighborhood.
-                </p>
-                    
-                <p>
-                    After your post is live, you will be able to see how many people are interested in your item. If more than one person is interested in your item, you will be able to choose a winner and send them an email to arrange a time and place to exchange your item.
-                </p>
-                    
-                <p>
-                    If possible, we highly suggest meeting in a public place to exchange your item instead of meeting at your home.
-                </p>
-                    
-                <p>
-                    To return to the login/register page, click "Home" in the drop down menu on the top left of the screen.
-                </p>
+                    <p style={{marginTop:"1rem"}}>
+                        <span style={{fontFamily:"'Lobster', cursive", fontSize:"1.25rem"}} >Cup of Sugar</span> is a hyper-local neighborhood experience focused on giving.
+                    </p>
+
+                    <p>
+                        Once you create your account on the home page, you will have the ability to view posts from your nearby neighbors who want to rehome their belongings.
+                    </p>
+
+                    <p>
+                        If you see something you like, click the "Get" button at the bottom of the post and it's all yours. The current owner will contact you to facilitate the handover.
+                    </p>
+
+                    <p>
+                        If you have an item that you would like to rehome, click the "+" button in the top right hand corner. Add a photo of your item along with a description and click "Post". Your item will appear in the main feed for your neighborhood.
+                    </p>
+
+                    <p>
+                        After your post is live, you will be able to see your post in the "My Posts" Tab of your feed. 
+                    </p>
+
+                    <p>
+                        If possible, we highly suggest arranging to meet in a public place to exchange your item.
+                    </p>
+
+                    <p>
+                        To return to the login/register page, click "Home" in the drop down menu on the top left of the screen.
+                    </p>
+
+                </Container>
             </Card>
         </Container>
     )
