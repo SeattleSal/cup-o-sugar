@@ -7,6 +7,7 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import API from '../utils/api';
 import { Image } from 'cloudinary-react';
+import { Button } from 'react-bootstrap';
 
 
 function PostCard({ postData, setPostData }) {
@@ -43,8 +44,9 @@ const cloudName="dl7nnmiar"
                 <Card.Body>
                     <Card.Title>{postData.name}</Card.Title>
                     <Card.Text>{postData.description}</Card.Text>
-                    <Container className="postCardFooter">
+                    <Container className="postCardFooter" >
                         <GetBtn value={postData._id} status={postData.status} onClick={handleButtonClick}/>
+                        <Button variant="outline-primary" type="submit">Insert owner's contact information.</Button>
                     </Container>
                 </Card.Body>
             </Card>
