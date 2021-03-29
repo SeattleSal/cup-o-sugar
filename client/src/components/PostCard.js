@@ -33,7 +33,7 @@ const cloudName="dl7nnmiar"
 
         postData.map((postData) => (
 
-            <Card className="card landingCard" key={postData._id} style={{ fontFamily: "'Montserrat', sans-serif", margin: "1rem" }} >
+            <Card className="card landingCard" key={postData._id} style={{ fontFamily: "'Montserrat', sans-serif", margin: "1rem"}} >
                 <Card.Body style={{ display:"flex", justifyContent:"center"}} >
                 <Image cloudName={cloudName} publicId={postData.cloudinary_id} width="300" crop="scale" />
                 </Card.Body>
