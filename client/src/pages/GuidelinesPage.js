@@ -3,7 +3,6 @@ import HeaderNav from "../components/HeaderNav";
 import Guidelines from "../components/Guidelines";
 import Footer from "../components/Footer";
 import GuidelinesImage from "../components/GuidelinesImage";
-// import {Container} from "react-bootstrap";
 
 function GuidelinesPage() {
     return (

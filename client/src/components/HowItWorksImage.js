@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 
-import questionSample from '../assets/questionSample.jpeg';
+import questionTiles from '../assets/questionTiles.jpeg';
 
 
 function HowItWorksImage() {
@@ -12,7 +12,7 @@ function HowItWorksImage() {
 
             <div style={{ display: "flex", justifyContent: "center" }}>
 
-                <img src={questionSample}  style={{ width: "100%", justifyContent: "center", marginBottom: "1rem", borderRadius: "8px" }} />
+                <img src={questionTiles}  alt="Question mark on broken tiles" style={{ width: "100%", justifyContent: "center", marginBottom: "1rem", borderRadius: "8px" }} />
 
             </div>
         </Container>

@@ -1,13 +1,10 @@
 //IMport the tabs from react-bootstrap
 import React, { useState, useEffect } from "react";
-// import Greeting from './Greeting';
 import { Container, Tab, Row, Tabs } from "react-bootstrap";
 import PostCard from "../components/PostCard";
 import MyPostCard from "./MyPostCard";
 import API from "../utils/api";
 
-// // import TabContainer from 'react-bootstrap/TabContainer'
-// //import PostCard into tabs/ feed and Post
 
 function FeedTabs() {
   const [key, setKey] = useState("home");
