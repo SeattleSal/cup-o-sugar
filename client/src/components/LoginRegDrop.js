@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useLogin, useIsAuthenticated } from "../utils/auth";
 import API from "../utils/api";
 import { Container } from "react-bootstrap";
@@ -11,6 +11,8 @@ import Guidelines from "./Guidelines";
 
 function LoginRegDrop() {
   const isAuthenticated = useIsAuthenticated();
+  const [loginErrorMessage, setLoginErrorMessage] = useState("");
+  const [registrationErrorMessage, setRegistrationErrorMessage] = useState("");
 
   // ----- LOGIN - hooks and functions -----//
   const loginEmailRef = useRef();
@@ -27,15 +29,19 @@ function LoginRegDrop() {
       // userData contains user _Id
       console.log(loginData.id);
       // User has been successfully logged in and added to state. Perform any additional actions you need here such as redirecting to a new page.
-      console.log("received user data...");
-      console.log(loginData);
       window.location.href = "/feed";
     } catch (err) {
       // Handle error responses from the API
       if (err.response && err.response.data) {
         console.log(err.response.data);
+        let message = "Login Error. ";
+        if (err.response.data.email) message += err.response.data.email;
+        if (err.response.data.password) message += err.response.data.password;
+        setLoginErrorMessage(message);
       } else {
         console.log(err.response.data);
+        setLoginErrorMessage("Login Error.");
+
       }
     }
   };
@@ -67,13 +73,18 @@ function LoginRegDrop() {
       await login({ email, password });
 
       // User has been successfully registered, logged in and added to state. Perform any additional actions you need here such as redirecting to a new page.
-      // window.location.href = "/feed";
+      window.location.href = "/feed";
     } catch (err) {
       // Handle error responses from the API. This will include
       if (err.response && err.response.data) {
         console.log(err.response.data);
+        let message = "Registration Error. ";
+        if (err.response.data.email) message += err.response.data.email;
+        if (err.response.data.password) message += err.response.data.password;
+        setRegistrationErrorMessage(message);
       } else {
         console.log(err.response.data);
+        setRegistrationErrorMessage("Registration Error.")
       }
     }
   };
@@ -93,6 +104,7 @@ function LoginRegDrop() {
           </Card.Header>
           <Accordion.Collapse eventKey="0">
             <Form className="regDropMenu" onSubmit={loginHandleSubmit} style={{ fontFamily: "'Montserrat', sans-serif" }}>
+              {loginErrorMessage && <h1>{loginErrorMessage}</h1>}
               <Form.Group controlId="loginEmail">
                 <Form.Control
                   type="text"
@@ -125,6 +137,8 @@ function LoginRegDrop() {
           </Card.Header>
           <Accordion.Collapse eventKey="1">
             <Form className="regDropMenu" onSubmit={registerHandleSubmit} style={{ fontFamily: "'Montserrat', sans-serif" }}>
+            {registrationErrorMessage && <h1>{registrationErrorMessage}</h1>}
+
               <Form.Group controlId="registerName">
                 <Form.Control type="text" ref={registerNameRef} placeholder="What's your name?" />
               </Form.Group>

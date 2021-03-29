@@ -10,13 +10,14 @@ function FeedTabs() {
   const [key, setKey] = useState("home");
   const [myPosts, setMyPosts] = useState([]);
   const [postData, setPostData] = useState([]);
+  let userId = "";
 
   // set postData and myPosts for PostCard and MyPostCards
   useEffect(() => {
     // get user ID
     API.getUserInfo()
       .then((userInfo) => {
-        let userId = userInfo.data[0]._id;
+        userId = userInfo.data[0]._id;
 
         // get all posts and filter on user ID
         API.getAllPost()
@@ -25,7 +26,7 @@ function FeedTabs() {
             let posts = results.data.filter((post) => post.owner === userId);
             setMyPosts(posts);
             // set all other posts
-            let notMyPosts = results.data.filter((post) => post.owner !== userId);
+            let notMyPosts = results.data.filter((post) => post.owner !== userId && post.status==="open");
             setPostData(notMyPosts);
           })
           .catch((err) => console.log("Get posts error: " + err));
@@ -53,7 +54,7 @@ function FeedTabs() {
           }}
         >
           <Row style={{ justifyContent: "center" }}>
-            <PostCard postData={postData} setPostData={setPostData} />
+            <PostCard postData={postData} setPostData={setPostData} userId={userId} />
           </Row>
         </Tab>
         <Tab

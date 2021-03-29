@@ -41,6 +41,8 @@ function MyPostCard({ myPosts, setMyPosts}) {
                 <Card.Body>
                     <Card.Title>{myPost.name}</Card.Title>
                     <Card.Text>{myPost.description}</Card.Text>
+                    <Card.Text>Status: {myPost.status}</Card.Text>
+
                     <Container className="postCardFooter">
                         {/* <Card.Img className="postOwnerPhoto" src={logo} /> */}
                         {/* <Card.Text>{myPost.owner}</Card.Text> */}

@@ -30,7 +30,9 @@ function HeaderNav() {
 
           <h1 style={{ fontFamily: "'Lobster', cursive", color: "white"}}>Cup of Sugar</h1>
 
-          <a className="nav-link fas fa-plus" href="/post" style={{ color: "white", fontSize: "1.75rem"}} />
+          <div>
+          {isAuthenticated && <a className="nav-link fas fa-plus" href="/post" style={{ color: "white", fontSize: "1.75rem"}} />}
+          </div>
 
         </div>
         <Accordion.Collapse eventKey="0">
@@ -41,7 +43,7 @@ function HeaderNav() {
             <a href= "/howitworks" style={{color:"rgba(95, 158, 160, 0.65)"}}>How It Works</a>
             <a href= "/guidelines" style={{color:"rgba(95, 158, 160, 0.65)"}}>Guidelines</a>
             {/* {isAuthenticated && <Button variant="link" onClick={logout} style={{color:"rgba(95, 158, 160, 0.65)"}}>Log Out</Button>} */}
-            <Button variant="link" onClick={logout} style={{color:"rgba(95, 158, 160, 0.65)"}}>Log Out</Button>
+            {isAuthenticated && <Button variant="link" onClick={logout} style={{color:"rgba(95, 158, 160, 0.65)"}}>Log Out</Button> }
           </Card>
         </Accordion.Collapse>
       </Accordion>

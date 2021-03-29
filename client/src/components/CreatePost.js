@@ -66,8 +66,7 @@ function CreatePost() {
 
     API.createPost(fd)
       .then((dbPost) => {
-        console.log("Post posted!");
-        console.log(dbPost);
+        // console.log(dbPost);
         // change this to Link
         window.location.href = "/feed";
       })
@@ -124,7 +123,6 @@ function CreatePost() {
       )}
     </Container>
 
-    // Redirect to FeedPage after submit
   );
 }
 

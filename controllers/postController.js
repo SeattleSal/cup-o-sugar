@@ -61,10 +61,21 @@ module.exports = {
 
     // updatePost
     update: function (req, res) {
-        console.log(req.params.id)
+        // console.log(req.user._id)
         console.log(req.body)
-        db.Post.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true})
-            .then(dbModel => res.json(dbModel))
+        // create my 
+        // responseOwner: req.user._id
+        // status: "claimed"
+        // db.Post.findOne({_id: req.params.id}).populate("User").execPopulate().then(data => res.json(data));
+        db.Post.findOneAndUpdate({ _id: req.params.id }, {...req.body, responseOwner: req.user._id}, { new: true})
+            .populate("User")
+            .then(dbModel => {
+                db.User.findOne({_id: dbModel._doc.owner}).then(user => { 
+                    res.json({...dbModel._doc, owner: user});
+
+                })
+
+            })
             .catch(err => res.status(422).json(err));
     },
 

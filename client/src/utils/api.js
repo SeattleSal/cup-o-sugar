@@ -91,7 +91,8 @@ class API {
 
     // Update Post when chosen by user
     // id = post ID
-    // postData = { "status": "closed", "responseOwner": userID}
+    // postData =  "status": "claimed"
+    // user comes from auth user
     updatePost(id, postData) {
         console.log("Updating Post" + id);
         return this.axios.put("/api/post/" + id, postData);
