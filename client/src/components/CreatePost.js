@@ -43,7 +43,7 @@ function CreatePost() {
   // submit file and post data from form
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Post Submitted...");
+    // console.log("Post Submitted...");
 
     // check for inputs - add error message?
     if (!selectedFile) return;
@@ -51,9 +51,9 @@ function CreatePost() {
     if (!state.postDescription) return;
 
     // debugging files sent
-    console.log("Selected File: ");
-    console.log(selectedFile);
-    console.log("Selected File Name: " + selectedFileName)
+    // console.log("Selected File: ");
+    // console.log(selectedFile);
+    // console.log("Selected File Name: " + selectedFileName)
 
     // create FormData
     let fd = new FormData();
@@ -66,7 +66,6 @@ function CreatePost() {
 
     API.createPost(fd)
       .then((dbPost) => {
-        // console.log(dbPost);
         // change this to Link
         window.location.href = "/feed";
       })
