@@ -31,7 +31,7 @@ function MyPostCard({ myPosts, setMyPosts}) {
 
         myPosts.map((myPost) => (
 
-            <Card className="card landingCard" key={myPost._id} style={{ fontFamily: "'Montserrat', sans-serif", margin: "1rem" }} >
+            <Card className="card landingCard" key={myPost._id} style={{ fontFamily: "'Montserrat', sans-serif", margin: "1rem", backgroundColor:"rgba(95, 158, 160, 0.10)" }} >
                 {/* <Container> */}
                 <Card.Body style={{ display: "flex", justifyContent: "center" }} >
                     <Image variant="top" cloudName={cloudName} publicId={myPost.cloudinary_id} crop="scale" style={{ maxHeight: "13rem" }} />
@@ -43,7 +43,7 @@ function MyPostCard({ myPosts, setMyPosts}) {
                     <Card.Text>{myPost.description}</Card.Text>
                     <Card.Text>Status: {myPost.status}</Card.Text>
 
-                    <Container className="postCardFooter">
+                    <Container className="postCardFooter" style={{display:"flex", justifyContent:"flex-end"}}>
                         {/* <Card.Img className="postOwnerPhoto" src={logo} /> */}
                         {/* <Card.Text>{myPost.owner}</Card.Text> */}
                         {/* display claimed or unclaimed(open or closed status) */}
