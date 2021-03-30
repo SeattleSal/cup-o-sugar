@@ -32,19 +32,21 @@ function App() {
   //   <h1>You are not logged in!</h1>
   // )} 
 
-  const isDone = useAuthTokenStore();
+  // const isDone = useAuthTokenStore();
 
   return (
     <Router>
-            {isDone &&<Switch>
+            {/* {isDone && */}
+            <Switch>
               <Route exact strict path="/" component={LandingLogin}></Route>
-              <Route path="/feed" component={GiveFeed}></Route>
+              <Route exact strict path="/feed" component={GiveFeed}></Route>
               <Route exact strict path="/post" component={AddPost}></Route>
               <Route exact strict path="/guidelines" component={GuidelinesPage}></Route>
               <Route exact strict path="/profile" component={ProfilePage}></Route>
               <Route exact strict path="/howitworks" component={HowItWorksPage}></Route>
               <Route exact path="*" component={LandingLogin}></Route>
-            </Switch>}
+            </Switch>
+            {/* } */}
     </Router>
   );
 }
