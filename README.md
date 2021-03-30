@@ -1,10 +1,9 @@
 # CupOfSugar
 
 ## Description 
-​
-CupOfSugar is a hyperlocal buy-nothing neighborhood experience application that allows neighbours to promote friendly environment and share free items within their community. Our application allows neighbours to browse through posted list of free items, request and get the items they like as long as those items are available. The users can create their own list of wanted/posted items within their registered accounts. 
-
-CupOfSugar was designed to promote friendly hyper local experience within your own neighborhood that will bring the community together helping each other.
+​Cup Of Sugar is a hyperlocal neighborhood experience that allows users to promote a friendly environment and share free items within their community.
+Our application allows the user to browse through a list of free items posted by their neighbors & get the items they like as long as those items are available.
+The users can also create their own posts of free items within their neighborhood.
 
 
 
@@ -21,14 +20,15 @@ CupOfSugar was designed to promote friendly hyper local experience within your o
 ​
 ## Technologies:
 ​
-* npm: inquirer
-* JavaScript
-* Node.js - runtime environment
-* Mongoose Database
-* React
-* Express
-* Bootstrap
-* Heroku
+Node / Express
+Mongoose Database Atlas
+Passport / Bcrypt / Fastest Validator
+Multer
+Cloudinary / Cloudinary-React
+React / React-Bootstrap
+Heroku
+
+
 ​
 ​
 ## Links to the app:
