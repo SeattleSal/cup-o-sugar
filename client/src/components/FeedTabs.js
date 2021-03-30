@@ -54,7 +54,7 @@ function FeedTabs() {
           }}
         >
           <Row style={{ justifyContent: "center" }}>
-            <PostCard postData={postData} setPostData={setPostData} userId={userId} />
+            <PostCard postData={postData} setPostData={setPostData} />
           </Row>
         </Tab>
         <Tab

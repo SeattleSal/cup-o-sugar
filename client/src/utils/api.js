@@ -36,8 +36,8 @@ class API {
      * @returns {Promise}
      */
     register(userData) {
-        console.log("Registered User:")
-        console.log(userData)
+        // console.log("Registered User:")
+        // console.log(userData)
 
         return this.axios.post("/api/authentication/register", userData);
 
@@ -52,8 +52,8 @@ class API {
      * @returns {Promise}
      */
     login(userData) {
-        console.log("Login User:")
-        console.log(userData)
+        // console.log("Login User:")
+        // console.log(userData)
 
         return this.axios.post("/api/authentication/login", userData);
 
@@ -74,14 +74,13 @@ class API {
 
     //getPostByUser
     getPostsByUser() {
-        console.log("Calling get post by user")
         return axios.get("/api/post/");
     }
 
     // Create post
     createPost(postData) {
-        console.log("Posting data: ")
-        console.log(postData)
+        // console.log("Posting data: ")
+        // console.log(postData)
         return this.axios.post("/api/post", postData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -94,20 +93,20 @@ class API {
     // postData =  "status": "claimed"
     // user comes from auth user
     updatePost(id, postData) {
-        console.log("Updating Post" + id);
+        // console.log("Updating Post" + id);
         return this.axios.put("/api/post/" + id, postData);
     }
 
     // Delete a post
     // id = post ID
     deletePost(id) {
-        console.log("Deleting post " + id);
+        // console.log("Deleting post " + id);
         return this.axios.delete("/api/post/" + id);
     }
 
     // get user info for logged in user
     getUserInfo() {
-        console.log("Get user info");
+        // console.log("Get user info");
         return this.axios.get("/api/user");
     }
 
