@@ -50,9 +50,9 @@ function PostCard({ postData, setPostData, userId }) {
 
         postData.map((postData) => (
 
-            <Card className="card landingCard" key={postData._id} style={{ fontFamily: "'Montserrat', sans-serif", margin: "1rem"}} >
+            <Card className="card landingCard" key={postData._id} style={{ fontFamily: "'Montserrat', sans-serif", margin: "1rem", backgroundColor:"rgba(95, 158, 160, 0.10)"}} >
                 <Card.Body style={{ display:"flex", justifyContent:"center"}} >
-                <Image cloudName={cloudName} publicId={postData.cloudinary_id} width="300" crop="scale" />
+                    <Image cloudName={cloudName} publicId={postData.cloudinary_id} width="300" crop="scale" />
                 </Card.Body>
 
                 {/* <Card.Img variant="top" src={postData.picture} /> */}
