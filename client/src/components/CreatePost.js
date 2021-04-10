@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
-import { Button } from "react-bootstrap";
+import { Form, Button, Container, Modal } from "react-bootstrap";
 import API from "../utils/api";
-import { Container } from 'react-bootstrap';
 
 function CreatePost() {
-
   const [state, setState] = useState({
     postName: "",
     postDescription: "",
@@ -16,6 +13,12 @@ function CreatePost() {
   const [selectedFile, setSelectedFile] = useState("");
   const [selectedFileName, setSelectedFileName] = useState("");
   const [previewSource, setPreviewSource] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  // modal states and functions
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -40,15 +43,28 @@ function CreatePost() {
     };
   };
 
-  // submit file and post data from form
+  // submit image file and post data from form
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log("Post Submitted...");
+    let message = "";
 
-    // check for inputs - add error message?
-    if (!selectedFile) return;
-    if (!state.postName) return;
-    if (!state.postDescription) return;
+    // check for inputs and add error messages
+    if (!selectedFile) {
+      message = "Please select image file.";
+    }
+    if (!state.postName) {
+      message += "\nPlease add item name.";
+    }
+    if (!state.postDescription) {
+      message += "\nPlease add item description.";
+    }
+    if (!selectedFile || !state.postName || !state.postDescription) {
+      console.log("Post not posted. Error:");
+      console.log(message);
+      setErrorMessage(message);
+      handleShow();
+      return;
+    }
 
     // debugging files sent
     // console.log("Selected File: ");
@@ -57,7 +73,6 @@ function CreatePost() {
 
     // create FormData
     let fd = new FormData();
-    fd.append("owner", "60596015b41879509463a6ef");
     fd.append("name", state.postName);
     fd.append("description", state.postDescription);
     fd.append("image", selectedFile, selectedFileName);
@@ -66,7 +81,7 @@ function CreatePost() {
 
     API.createPost(fd)
       .then((dbPost) => {
-        // change this to Link
+        // change this to Link to my posts?
         window.location.href = "/feed";
       })
       .catch((err) => console.log("Post creation error: " + err));
@@ -76,11 +91,14 @@ function CreatePost() {
     <Container>
       <Form
         onSubmit={handleSubmit}
-        style={{ fontFamily:"'Montserrat', sans-serif"}}
+        style={{ fontFamily: "'Montserrat', sans-serif" }}
       >
         <h3
           className="postOwnerName"
-          style={{ fontFamily: "'Lobster', cursive", color: "rgba(95, 158, 160, 0.95)" }}
+          style={{
+            fontFamily: "'Lobster', cursive",
+            color: "rgba(95, 158, 160, 0.95)",
+          }}
         >
           Give something away...
         </h3>
@@ -120,8 +138,21 @@ function CreatePost() {
           <img src={previewSource} alt="chosen" style={{ height: "300px" }} />
         </div>
       )}
-    </Container>
 
+      {errorMessage && (
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Give not posted.</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>{errorMessage}</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      )}
+    </Container>
   );
 }
 

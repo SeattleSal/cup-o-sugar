@@ -83,6 +83,12 @@ module.exports = {
     remove: function (req, res) {
         db.Post.findById({ _id: req.params.id })
             .then(dbModel => dbModel.remove())
+            // remove cloudinary image
+            .then(dbModel => {
+                // console.log(dbModel.cloudinary_id)
+                cloudinary.v2.uploader.destroy(dbModel.cloudinary_id, function(error,result) {
+                    console.log(result, error) });
+            })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     }
