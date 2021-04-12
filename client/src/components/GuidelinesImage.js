@@ -1,7 +1,8 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 
-import rulesBlocks from '../assets/rulesBlocks.jpeg';
+// import rulesBlocks from '../assets/rulesBlocks.jpeg';
+import rulesBlocks from '../assets/tinifiedImages/rulesBlocks.jpeg';
 
 
 function GuidelinesImage() {
