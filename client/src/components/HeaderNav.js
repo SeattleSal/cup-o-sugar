@@ -1,54 +1,85 @@
-import React from 'react';
-import { useLogout, useIsAuthenticated } from '../utils/auth';
-
-import { Container, Jumbotron } from 'react-bootstrap';
-import { Accordion } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
-import { Card } from 'react-bootstrap';
+import React from "react";
+import { useLogout, useIsAuthenticated } from "../utils/auth";
+import { Container, Jumbotron, Accordion, Button, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function HeaderNav() {
-
   // user logged in or not
   const isAuthenticated = useIsAuthenticated();
 
   // ---- LOGOUT  ---- //
   const logout = useLogout();
-  // END OF LOGOUT FUNCTION //
 
   return (
-
     <Container>
+      <Jumbotron
+        className="jumbotron jumbotron-fluid text-center col-12"
+        style={{
+          backgroundColor: "rgba(95, 158, 160, 0.65)",
+          borderRadius: "8px",
+        }}
+      >
+        <Accordion>
+          <div className="navContainer container">
+            <Accordion.Toggle
+              as={Button}
+              className="fas fa-bars"
+              variant="link"
+              eventKey="0"
+              style={{ color: "white", fontSize: "1.75rem" }}
+            ></Accordion.Toggle>
 
-    <Jumbotron className="jumbotron jumbotron-fluid text-center col-12" style={{ backgroundColor:"rgba(95, 158, 160, 0.65)", borderRadius:"8px" }} >
-      <Accordion>
-        <div className="navContainer container">
+            <h1 style={{ fontFamily: "'Lobster', cursive", color: "white" }}>
+              Cup O Sugar
+            </h1>
 
-          {/* <Card> */}
-            <Accordion.Toggle as={Button} className="fas fa-bars" variant="link" eventKey="0" style={{ color: "white", fontSize: "1.75rem"}}>
-            </Accordion.Toggle>
-          {/* </Card> */}
-
-          <h1 style={{ fontFamily: "'Lobster', cursive", color: "white"}}>Cup of Sugar</h1>
-
-          <div>
-          {isAuthenticated && <a className="nav-link fas fa-plus" href="/post" style={{ color: "white", fontSize: "1.75rem"}} />}
+            <div>
+              {isAuthenticated && (
+                <Link to="/post"
+                  className="nav-link fas fa-plus"
+                  style={{ color: "white", fontSize: "1.75rem" }}
+                />
+              )}
+            </div>
           </div>
-
-        </div>
-        <Accordion.Collapse eventKey="0">
-          <Card style={{fontFamily:"'Montserrat', sans-serif"}}>
-            <a href= "/" style={{color:"rgba(95, 158, 160, 0.65)"}}>Home</a>
-            <a href= "/feed" style={{color:"rgba(95, 158, 160, 0.65)"}}>Give Feed</a>
-            <a href= "/profile" style={{color:"rgba(95, 158, 160, 0.65)"}}>Profile</a>
-            <a href= "/howitworks" style={{color:"rgba(95, 158, 160, 0.65)"}}>How It Works</a>
-            <a href= "/guidelines" style={{color:"rgba(95, 158, 160, 0.65)"}}>Guidelines</a>
-            {isAuthenticated && <Button variant="link" onClick={logout} style={{color:"rgba(95, 158, 160, 0.65)"}}>Log Out</Button> }
-          </Card>
-        </Accordion.Collapse>
-      </Accordion>
-    </Jumbotron>
+          <Accordion.Collapse eventKey="0">
+            <Card style={{ fontFamily: "'Montserrat', sans-serif" }}>
+              <Link to="/" style={{ color: "rgba(95, 158, 160, 0.65)" }}>
+                Home
+              </Link>
+              <Link to="/feed" style={{ color: "rgba(95, 158, 160, 0.65)" }}>
+                Give Feed
+              </Link>
+              <Link to="/profile" style={{ color: "rgba(95, 158, 160, 0.65)" }}>
+                Profile
+              </Link>
+              <Link
+                to="/howitworks"
+                style={{ color: "rgba(95, 158, 160, 0.65)" }}
+              >
+                How It Works
+              </Link>
+              <Link
+                to="/guidelines"
+                style={{ color: "rgba(95, 158, 160, 0.65)" }}
+              >
+                Guidelines
+              </Link>
+              {isAuthenticated && (
+                <Button
+                  variant="link"
+                  onClick={logout}
+                  style={{ color: "rgba(95, 158, 160, 0.65)" }}
+                >
+                  Log Out
+                </Button>
+              )}
+            </Card>
+          </Accordion.Collapse>
+        </Accordion>
+      </Jumbotron>
     </Container>
-  )
+  );
 }
 
 export default HeaderNav;
