@@ -39,10 +39,9 @@ function HeaderNav() {
           <Card style={{fontFamily:"'Montserrat', sans-serif"}}>
             <a href= "/" style={{color:"rgba(95, 158, 160, 0.65)"}}>Home</a>
             <a href= "/feed" style={{color:"rgba(95, 158, 160, 0.65)"}}>Give Feed</a>
-            {/* <a href= "/profile" style={{color:"rgba(95, 158, 160, 0.65)"}}>Profile</a> */}
+            <a href= "/profile" style={{color:"rgba(95, 158, 160, 0.65)"}}>Profile</a>
             <a href= "/howitworks" style={{color:"rgba(95, 158, 160, 0.65)"}}>How It Works</a>
             <a href= "/guidelines" style={{color:"rgba(95, 158, 160, 0.65)"}}>Guidelines</a>
-            {/* {isAuthenticated && <Button variant="link" onClick={logout} style={{color:"rgba(95, 158, 160, 0.65)"}}>Log Out</Button>} */}
             {isAuthenticated && <Button variant="link" onClick={logout} style={{color:"rgba(95, 158, 160, 0.65)"}}>Log Out</Button> }
           </Card>
         </Accordion.Collapse>
