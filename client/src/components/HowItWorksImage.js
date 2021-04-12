@@ -1,7 +1,8 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 
-import questionTiles from '../assets/questionTiles.jpeg';
+// import questionTiles from '../assets/questionTiles.jpeg';
+import questionTiles from '../assets/tinifiedImages/questionTiles.jpeg';
 
 
 function HowItWorksImage() {

@@ -104,7 +104,7 @@ function LoginRegDrop() {
           </Card.Header>
           <Accordion.Collapse eventKey="0">
             <Form className="regDropMenu" onSubmit={loginHandleSubmit} style={{ fontFamily: "'Montserrat', sans-serif" }}>
-              {loginErrorMessage && <h1>{loginErrorMessage}</h1>}
+              {loginErrorMessage && <p style={{ color: "red", fontFamily: "'Montserrat', sans-serif" }}  >{loginErrorMessage}</p>}
               <Form.Group controlId="loginEmail">
                 <Form.Control
                   type="text"
@@ -137,7 +137,7 @@ function LoginRegDrop() {
           </Card.Header>
           <Accordion.Collapse eventKey="1">
             <Form className="regDropMenu" onSubmit={registerHandleSubmit} style={{ fontFamily: "'Montserrat', sans-serif" }}>
-            {registrationErrorMessage && <h1>{registrationErrorMessage}</h1>}
+            {registrationErrorMessage && <p style={{ color: "red", fontFamily: "'Montserrat', sans-serif" }} >{registrationErrorMessage}</p>}
 
               <Form.Group controlId="registerName">
                 <Form.Control type="text" ref={registerNameRef} placeholder="What's your name?" />
@@ -152,12 +152,9 @@ function LoginRegDrop() {
               <Form.Group controlId="registerNeighborhood">
                 <Form.Label>Select Your Neighorhood</Form.Label>
                 <Form.Control as="select" ref={registerNeighborhoodRef} style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                  <option>Zipcode 1</option>
-                  <option>Zipcode 2</option>
-                  <option>Zipcode 3</option>
-                  <option>Zipcode 4</option>
-                  <option>Zipcode 5</option>
+                  <option>Seattle Area</option>
                 </Form.Control>
+                <Form.Label style={{ color: "rgba(95, 158, 160)", fontFamily: "'Montserrat', sans-serif", marginTop: "0.6rem" }} >More Locations Coming Soon...</Form.Label>
               </Form.Group>
 
               <Button variant="outline-primary" type="submit">

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 
-import peopleBubbles from '../assets/peopleBubbles.jpeg';
+// import peopleBubbles from '../assets/peopleBubbles.jpeg';
+import peopleBubbles from '../assets/tinifiedImages/peopleBubbles.jpeg';
 
 
 function FeedImage() {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import neighborCutOut from '../assets/neighborCutOut.jpeg';
+// import neighborCutOut from '../assets/neighborCutOut.jpeg';
+import neighborCutOut from '../assets/tinifiedImages/neighborCutOut.jpeg';
 
 
 function GreetingPhoto () {
