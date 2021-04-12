@@ -1,7 +1,8 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 
-import giveStamps from '../assets/giveStamps.jpeg';
+// import giveStamps from '../assets/giveStamps.jpeg';
+import giveStamps from '../assets/tinifiedImages/giveStamps-min.jpeg';
 
 
 function CreatePostImage() {
