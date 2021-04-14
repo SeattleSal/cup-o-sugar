@@ -63,15 +63,23 @@ module.exports = {
     update: function (req, res) {
         // console.log(req.user._id)
         console.log(req.body)
-        // create my 
         // responseOwner: req.user._id
         // status: "claimed"
         // db.Post.findOne({_id: req.params.id}).populate("User").execPopulate().then(data => res.json(data));
+        // to do - if post is already "claimed", send back error????
+        
+        // check status
+        // findOne => .then(dbModel => { if db.Post.status === "claimed" res.json("Already Claimed")
+        // else if // it's open ... })
+
         db.Post.findOneAndUpdate({ _id: req.params.id }, {...req.body, responseOwner: req.user._id}, { new: true})
             .populate("User")
             .then(dbModel => {
                 db.User.findOne({_id: dbModel._doc.owner}).then(user => { 
+                    // check if claimed or not
+                    // if not claimed, use this line:
                     res.json({...dbModel._doc, owner: user});
+                    // else if claimed, send back rejection json?
 
                 })
 

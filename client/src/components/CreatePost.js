@@ -13,7 +13,7 @@ function CreatePost() {
   const [selectedFile, setSelectedFile] = useState("");
   const [selectedFileName, setSelectedFileName] = useState("");
   const [previewSource, setPreviewSource] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState([]);
 
   // modal states and functions
   const [show, setShow] = useState(false);
@@ -46,17 +46,17 @@ function CreatePost() {
   // submit image file and post data from form
   const handleSubmit = (e) => {
     e.preventDefault();
-    let message = "";
+    let message = [];
 
     // check for inputs and add error messages
-    if (!selectedFile) {
-      message = "Please select image file.";
+    if (!state.postDescription) {
+      message.push("Please add item description.");
     }
     if (!state.postName) {
-      message += "\nPlease add item name.";
+      message.push("Please add item name.");
     }
-    if (!state.postDescription) {
-      message += "\nPlease add item description.";
+    if (!selectedFile) {
+      message.push("Please add image file.");
     }
     if (!selectedFile || !state.postName || !state.postDescription) {
       console.log("Post not posted. Error:");
@@ -65,11 +65,6 @@ function CreatePost() {
       handleShow();
       return;
     }
-
-    // debugging files sent
-    // console.log("Selected File: ");
-    // console.log(selectedFile);
-    // console.log("Selected File Name: " + selectedFileName)
 
     // create FormData
     let fd = new FormData();
@@ -142,9 +137,12 @@ function CreatePost() {
       {errorMessage && (
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Give not posted.</Modal.Title>
+            <Modal.Title>You're not quite finished...</Modal.Title>
           </Modal.Header>
-          <Modal.Body>{errorMessage}</Modal.Body>
+          <Modal.Body><ul>{errorMessage.map((msg, index) =>
+                <li key={msg.index}>{msg}</li>)
+              }
+              </ul></Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Close

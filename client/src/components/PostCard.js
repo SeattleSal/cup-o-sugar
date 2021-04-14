@@ -21,6 +21,9 @@ function PostCard({ postData, setPostData }) {
         .then((data) => {
             // data returned has the email of post owner 
             // console.log(data.data)
+
+            // check data for error message "already claimed" message
+            // if "already claimed" -> message = "sorry already claimed"
             let tempPost = postData.map((post) => {
                 if(post._id === clickedId) {
                     post = {...post, status : "claimed", postOwnerEmail : data.data.owner.email}
