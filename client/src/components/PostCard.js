@@ -13,27 +13,34 @@ function PostCard({ postData, setPostData }) {
 
     // update post as claimed
     const handleButtonClick = (e) => {
-        // console.log(e.target.value);
         const clickedId = e.target.value;
 
         //call API updatePost and send postID and status. back end will use auth ID
         API.updatePost(clickedId, { status: "claimed"})
         .then((data) => {
-            // data returned has the email of post owner 
-            // console.log(data.data)
-
             // check data for error message "already claimed" message
             // if "already claimed" -> message = "sorry already claimed"
-            let tempPost = postData.map((post) => {
-                if(post._id === clickedId) {
-                    post = {...post, status : "claimed", postOwnerEmail : data.data.owner.email}
-                }
-                return post;
-            })
-            setPostData(tempPost);
+            if (data.data === "alreadyClaimed") {
+                let tempPost = postData.map((post) => {
+                    if(post._id === clickedId) {
+                        post = {...post, status : "alreadyClaimed"}
+                    }
+                    return post;
+                })
+                setPostData(tempPost);
+            } 
+            // logged in user claimed post
+            else {
+                let tempPost = postData.map((post) => {
+                    if(post._id === clickedId) {
+                        post = {...post, status : "claimed", postOwnerEmail : data.data.owner.email}
+                    }
+                    return post;
+                })
+                setPostData(tempPost);
+            }
         })
         .catch(err => console.log(err));
-
     }
     
     return (
@@ -49,9 +56,14 @@ function PostCard({ postData, setPostData }) {
                     <Card.Title>{postData.name}</Card.Title>
                     <Card.Text>{postData.description}</Card.Text>
                     <Container className="postCardFooter" >
-                        <GetBtn value={postData._id} status={postData.status} onClick={handleButtonClick}/>
+                        {postData.status === "open" &&
+                            <GetBtn value={postData._id} status={postData.status} onClick={handleButtonClick}/>
+                        }
                         {postData.status === "claimed" &&
-                        <Button variant="outline-primary" type="submit" style={{marginLeft:"5px"}}>You got it! Contact owner at {postData.postOwnerEmail}</Button>
+                            <Button variant="outline-primary" type="submit" style={{marginLeft:"5px"}}>It's yours! Contact owner at {postData.postOwnerEmail}</Button>
+                        }   
+                        {postData.status === "alreadyClaimed" &&
+                            <Button variant="outline-primary" type="submit" style={{marginLeft:"5px"}}>Too late! Someone already got it!</Button>
                         }   
                     </Container>
                 </Card.Body>
