@@ -34,10 +34,10 @@ module.exports = {
     },
 
     // createPost for logged in user
+    // logged in user id = req.user._id
     create: async(req, res) => {
-        // logged in user id = req.user._id
         try {
-            console.log(req.file.path)
+            // console.log(req.file.path)
             // upload image to cloudinary
             const result = await cloudinary.uploader.upload(req.file.path,
                 {
@@ -59,41 +59,41 @@ module.exports = {
         }
     },
 
-    // updatePost
-    update: function (req, res) {
-        // console.log(req.user._id)
-        console.log(req.body)
-        // responseOwner: req.user._id
-        // status: "claimed"
-        // db.Post.findOne({_id: req.params.id}).populate("User").execPopulate().then(data => res.json(data));
-        // to do - if post is already "claimed", send back error????
-        
-        // check status
-        // findOne => .then(dbModel => { if db.Post.status === "claimed" res.json("Already Claimed")
-        // else if // it's open ... })
+    // updatePost - if item is open, assign to requester; if item was already requested, return 'alreadyRequested' message
+    update: async(req, res) => {
 
-        db.Post.findOneAndUpdate({ _id: req.params.id }, {...req.body, responseOwner: req.user._id}, { new: true})
-            .populate("User")
-            .then(dbModel => {
-                db.User.findOne({_id: dbModel._doc.owner}).then(user => { 
-                    // check if claimed or not
-                    // if not claimed, use this line:
-                    res.json({...dbModel._doc, owner: user});
-                    // else if claimed, send back rejection json?
+        try{
+            // get post info and status
+            let post = await db.Post.findOne({ _id: req.params.id });
+            // if already claimed, return alreadyClaimed message
+            if (post.status === "claimed") {
+                res.json("alreadyClaimed");
+                return;
+            }
 
-                })
+            // if item still open, update post as status claimed with responseOwner as logged in owner
+            // logged in user id = req.user._id
+            let postUpdate = await db.Post.findOneAndUpdate({ _id: req.params.id }, {...req.body, responseOwner: req.user._id}, { new: true}).populate("User");
 
-            })
-            .catch(err => res.status(422).json(err));
+            // get post owner info
+            let postOwnerInfo = await (await db.User.findOne({_id: postUpdate._doc.owner}));
+
+            // return updated post with post owmer info (email)
+            res.json({...postUpdate._doc, owner: postOwnerInfo});
+
+        }
+        catch(err) {
+            res.status(422).json(err);
+            console.log(err);
+        }
     },
 
     // deletePost
     remove: function (req, res) {
         db.Post.findById({ _id: req.params.id })
             .then(dbModel => dbModel.remove())
-            // remove cloudinary image
+            // delete image from cloudinary
             .then(dbModel => {
-                // console.log(dbModel.cloudinary_id)
                 cloudinary.v2.uploader.destroy(dbModel.cloudinary_id, function(error,result) {
                     console.log(result, error) });
             })
