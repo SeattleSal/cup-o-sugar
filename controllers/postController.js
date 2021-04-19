@@ -9,7 +9,7 @@ module.exports = {
 
     // getAllPosts
     findAll: function (req, res) {
-        console.log("Get all posts")
+        // console.log("Get all posts")
         db.Post.find(req.query)
             .sort({ date: -1 })
             .then(dbModel => res.json(dbModel))
