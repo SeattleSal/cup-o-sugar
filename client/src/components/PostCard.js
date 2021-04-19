@@ -1,10 +1,7 @@
 import React from 'react';
-import GetBtn from "../components/GetBtn";
-import Card from 'react-bootstrap/Card';
-import Container from 'react-bootstrap/Container';
 import API from '../utils/api';
 import { Image } from 'cloudinary-react';
-import { Button } from 'react-bootstrap';
+import { Card, Container, Button } from 'react-bootstrap';
 
 function PostCard({ postData, setPostData }) {
 
@@ -56,14 +53,16 @@ function PostCard({ postData, setPostData }) {
                     <Card.Title>{postData.name}</Card.Title>
                     <Card.Text>{postData.description}</Card.Text>
                     <Container className="postCardFooter" >
-                        {postData.status === "open" &&
-                            <GetBtn value={postData._id} status={postData.status} onClick={handleButtonClick}/>
+                         {postData.status === "open" &&
+                            <Button className="get-btn rounded" tabIndex="0" style={{backgroundColor:"rgba(95, 158, 160, 0.65)", color: "white" }}
+                                    value={postData._id} status={postData.status} onClick={handleButtonClick}>Get
+                            </Button>
                         }
                         {postData.status === "claimed" &&
-                            <Button variant="outline-primary" type="submit" style={{marginLeft:"5px"}}>It's yours! Contact owner at {postData.postOwnerEmail}</Button>
+                            <Button variant="outline-primary" disabled={true} style={{marginLeft:"5px"}}>It's yours! Contact owner at {postData.postOwnerEmail}</Button>
                         }   
                         {postData.status === "alreadyClaimed" &&
-                            <Button variant="outline-primary" type="submit" style={{marginLeft:"5px"}}>Too late! Someone already got it!</Button>
+                            <Button variant="outline-primary" disabled={true} style={{marginLeft:"5px"}}>Too late! Someone already got it!</Button>
                         }   
                     </Container>
                 </Card.Body>
