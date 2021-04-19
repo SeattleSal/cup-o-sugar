@@ -53,19 +53,17 @@ function PostCard({ postData, setPostData }) {
                     <Card.Title>{postData.name}</Card.Title>
                     <Card.Text>{postData.description}</Card.Text>
                     <Container className="postCardFooter" >
-                        <Button className="get-btn rounded" tabIndex="0" style={{backgroundColor:"rgba(95, 158, 160, 0.65)", color: "white" }}
-                            value={postData._id} status={postData.status} onClick={handleButtonClick}>
-                                {postData.status === "open" && "Get"}
-                                {postData.status === "claimed" && `It's yours! Contact owner at ${postData.postOwnerEmail}`}
-                                {postData.status === "alreadyClaimed" && "Too late! Already taken!"}
-                        </Button>
-
-                        {/* {postData.status === "claimed" &&
+                         {postData.status === "open" &&
+                            <Button className="get-btn rounded" tabIndex="0" style={{backgroundColor:"rgba(95, 158, 160, 0.65)", color: "white" }}
+                                    value={postData._id} status={postData.status} onClick={handleButtonClick}>Get
+                            </Button>
+                        }
+                        {postData.status === "claimed" &&
                             <Button variant="outline-primary" disabled={true} style={{marginLeft:"5px"}}>It's yours! Contact owner at {postData.postOwnerEmail}</Button>
                         }   
                         {postData.status === "alreadyClaimed" &&
                             <Button variant="outline-primary" disabled={true} style={{marginLeft:"5px"}}>Too late! Someone already got it!</Button>
-                        }    */}
+                        }   
                     </Container>
                 </Card.Body>
             </Card>
