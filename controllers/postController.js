@@ -76,7 +76,7 @@ module.exports = {
             let postUpdate = await db.Post.findOneAndUpdate({ _id: req.params.id }, {...req.body, responseOwner: req.user._id}, { new: true}).populate("User");
 
             // get post owner info
-            let postOwnerInfo = await (await db.User.findOne({_id: postUpdate._doc.owner}));
+            let postOwnerInfo = await db.User.findOne({_id: postUpdate._doc.owner});
 
             // return updated post with post owmer info (email)
             res.json({...postUpdate._doc, owner: postOwnerInfo});
