@@ -1,10 +1,8 @@
 import React from 'react';
-import GetBtn from "../components/GetBtn";
-import Card from 'react-bootstrap/Card';
-import Container from 'react-bootstrap/Container';
 import API from '../utils/api';
 import { Image } from 'cloudinary-react';
-import { Button } from 'react-bootstrap';
+import { Card, Container, Button } from 'react-bootstrap';
+import GetBtn from './GetBtn';
 
 function PostCard({ postData, setPostData }) {
 

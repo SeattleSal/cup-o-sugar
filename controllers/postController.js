@@ -9,7 +9,7 @@ module.exports = {
 
     // getAllPosts
     findAll: function (req, res) {
-        console.log("Get all posts")
+        // console.log("Get all posts")
         db.Post.find(req.query)
             .sort({ date: -1 })
             .then(dbModel => res.json(dbModel))
@@ -76,7 +76,7 @@ module.exports = {
             let postUpdate = await db.Post.findOneAndUpdate({ _id: req.params.id }, {...req.body, responseOwner: req.user._id}, { new: true}).populate("User");
 
             // get post owner info
-            let postOwnerInfo = await (await db.User.findOne({_id: postUpdate._doc.owner}));
+            let postOwnerInfo = await db.User.findOne({_id: postUpdate._doc.owner});
 
             // return updated post with post owmer info (email)
             res.json({...postUpdate._doc, owner: postOwnerInfo});
