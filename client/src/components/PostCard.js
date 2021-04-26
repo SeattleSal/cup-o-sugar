@@ -47,25 +47,25 @@ function PostCard({ postData, setPostData }) {
 
         postData.map((postData) => (
 
-            <Card className="card landingCard" key={postData._id} style={{ fontFamily: "'Montserrat', sans-serif", margin: "1rem", backgroundColor:"rgba(95, 158, 160, 0.10)"}} >
+            <Card className="card landingCard" key={postData._id} style={{ fontFamily: "'Montserrat', sans-serif", margin: "1rem", backgroundColor:"rgba(95, 158, 160, 0.10)", minWidth:"22rem"}} >
                 <Card.Body style={{ display:"flex", justifyContent:"center"}} >
-                    <Image cloudName={cloudName} publicId={postData.cloudinary_id} width="300" crop="scale" />
+                    <Image radius="20" cloudName={cloudName} publicId={postData.cloudinary_id} crop="fill" style={{maxWidth: "20rem" }}  />
                 </Card.Body>
 
                 <Card.Body>
                     <Card.Title>{postData.name}</Card.Title>
-                    <Card.Text>{postData.description}</Card.Text>
-                    <Container className="postCardFooter" >
+                    <Card.Text style={{minWidth: "20rem" }} >{postData.description}</Card.Text>
+                    <div className="postCardFooter" >
                         {postData.status === "open" &&
-                            <GetBtn value={postData._id} status={postData.status} onClick={handleButtonClick}/>
+                            <GetBtn style={{minWidth: "20rem" }} value={postData._id} status={postData.status} onClick={handleButtonClick}/>
                         }
                         {postData.status === "claimed" &&
-                            <Button variant="outline-primary" type="submit" style={{marginLeft:"5px"}}>It's yours! Contact owner at {postData.postOwnerEmail}</Button>
+                            <Button variant="outline-primary" type="submit" style={{minWidth: "20rem", maxWidth: "20rem" }}>It's yours! Contact owner at {postData.postOwnerEmail}</Button>
                         }   
                         {postData.status === "alreadyClaimed" &&
-                            <Button variant="outline-primary" type="submit" style={{marginLeft:"5px"}}>Too late! Someone already got it!</Button>
+                            <Button variant="outline-primary" type="submit" style={{minWidth: "20rem", maxWidth: "20rem" }}>Too late! Someone already got it!</Button>
                         }   
-                    </Container>
+                    </div>
                 </Card.Body>
             </Card>
         ))
